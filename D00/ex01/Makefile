@@ -6,41 +6,33 @@
 #    By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/09 15:20:08 by obouykou          #+#    #+#              #
-#    Updated: 2021/01/09 19:07:43 by obouykou         ###   ########.fr        #
+#    Updated: 2021/01/30 18:23:32 by obouykou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = MyContacts
+NAME = MyPhoneBook
 
-LIB = libminishell.a
+MAIN = my_phonebook.cpp
 
-MAIN = my_contacts.cpp 
+FILES = sources/contact.class.cpp sources/phonebook.class.cpp
 
-FILES = my_contacts.cpp \
-        sources/add_contact.cpp \
-        sources/contact.cpp \
-        sources/contacts.cpp \
-        sources/get_command.cpp \
-        sources/search_contact.cpp
+HEADERS = includes/contact.class.hpp includes/phonebook.class.hpp
 
-HEADER = ./includes/my_contacts.h ./includes
-
-OBJECT = $(FILES:.c=.o)
+OBJECT = $(FILES:.cpp=.o)
 
 FLAGS = -Wextra -Werror -Wall
 
 all: $(NAME)
 
-$(NAME): $(OBJECT) $(HEADER) $(FILES)
-	@ar -rcs $(LIB) $(OBJECT)
-	@clang++ $(FLAGS) $(MAIN) $(LIB) -o $(NAME)
-	@echo "\n\033[32m------- MyContacts has been created successfully -------\033[0m\n"
+$(NAME): $(OBJECT) $(FILES) $(HEADERS) $(MAIN)
+	@clang++ $(FLAGS) $(MAIN) $(OBJECT) -o $(NAME)
+	@echo "\n\033[32m------- MyPhoneBook has been created successfully -------\033[0m\n"
 
-%.o:%.c $(HEADER)								
+%.o:%.cpp					
 	@clang++ $(FLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJECT) $(LIB)
+	@rm -rf $(OBJECT)
 	@echo "\n\033[36mCleaning objects Done!\033[0m\n"
 
 fclean: clean

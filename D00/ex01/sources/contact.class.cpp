@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:48:48 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/29 11:20:20 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/01/30 17:58:48 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ std::string	Contact::getNickname(void)
 	return nickname;
 }
 
-void		Contact::setNickname(std::string nickName)	
+void		Contact::setNickname(std::string nickname)
 {
 	this->nickname = nickname;
 }
@@ -67,7 +67,7 @@ std::string	Contact::getPostalAdress(void)
 	return postalAddress;
 }
 
-void		Contact::setPostalAdress(std::string postalAdress)	
+void		Contact::setPostalAdress(std::string postalAddress)	
 {
 	this->postalAddress = postalAddress;
 }
@@ -77,7 +77,7 @@ std::string	Contact::getEmailAdress(void)
 	return emailAddress;
 }
 
-void		Contact::setEmailAdress(std::string emailAdress)	
+void		Contact::setEmailAdress(std::string emailAddress)	
 {
 	this->emailAddress = emailAddress;
 }
