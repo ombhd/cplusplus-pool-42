@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:24:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/30 19:20:48 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/01/31 12:54:54 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
+std::string	PhoneBook::get_field(std::string field_name)
+{
+	std::string tmp;
+
+	std::cout << field_name;
+	std::getline(std::cin, tmp);
+	return (tmp);
+}
+
 void		PhoneBook::add_contact(void)
 {
 	std::string tmp;
@@ -36,27 +45,13 @@ void		PhoneBook::add_contact(void)
 		return ;
 	}
 	std::getline(std::cin, tmp);
-	std::cout << "First Name      : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setFirstName(tmp);
-	std::cout << "Last Name       : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setLastName(tmp);
-	std::cout << "Nickname        : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setNickname(tmp);
-	std::cout << "Login           : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setLogin(tmp);
-	std::cout << "Postal Adress   : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setPostalAdress(tmp);
-	std::cout << "Email Adress    : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setEmailAdress(tmp);
-	std::cout << "Phone Number    : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setPhoneNumber(tmp);
+	contacts[noc].setFirstName(get_field("First Name      : "));
+	contacts[noc].setLastName(get_field("Last Name       : "));
+	contacts[noc].setNickname(get_field("Nickname        : "));
+	contacts[noc].setLogin(get_field("Login           : "));
+	contacts[noc].setPostalAdress(get_field("Postal Adress   : "));
+	contacts[noc].setEmailAdress(get_field("Email Adress    : "));
+	contacts[noc].setPhoneNumber(get_field("Phone Number    : "));
 	do
 	{
 		std::cout << "Birthday Date [day-month-year] (Numbers ONLY) : ";
@@ -71,17 +66,11 @@ void		PhoneBook::add_contact(void)
 	} while (1);
 	contacts[noc].setBirthdayDate(date);
 	std::getline(std::cin, tmp);
-	std::cout << "Favourite Meal  : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setFavMeal(tmp);
-	std::cout << "Underwear Color : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setUnderwearColor(tmp);
-	std::cout << "Darkest Secret  : ";
-	std::getline(std::cin, tmp);
-	contacts[noc].setDarkestSecret(tmp);
+	contacts[noc].setFavMeal(get_field("Favourite Meal  : "));
+	contacts[noc].setUnderwearColor(get_field("Underwear Color : "));
+	contacts[noc].setDarkestSecret(get_field("Darkest Secret  : "));
 	noc++;
-	std::cout << std::endl << "---------------------------------------" << std::endl;
+	std::cout << "\n---------------------------------------" << std::endl;
 	std::cout << "-- Contact has been added succefully --" << std::endl;
 	std::cout << "---------------------------------------" << std::endl;
 }
@@ -102,14 +91,20 @@ void		PhoneBook::print_column(std::string str)
 int			PhoneBook::get_index()
 {
 	int i;
+	bool b;
 	
 	do
 	{
+		b = true;
 		std::cout << "To get full infos, Type an index from the list above: ";
-		std::cin >> i;
-		if (i < 0 || i > noc)
-			std::cout << "Invalid index" << std::endl;
-	} while (i < 0 || i > noc);
+		if (!(std::cin >> i) || (i < 0 || i >= noc))
+		{
+			std::cout << "Invalid index, Try again.." << std::endl;
+			std::cin.clear();
+			std::cin.ignore();
+			b = false;
+		}
+	} while (b == false);
 	return (i);
 }
 
