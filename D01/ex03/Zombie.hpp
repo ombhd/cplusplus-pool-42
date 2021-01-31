@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.hpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 11:11:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 16:08:54 by obouykou         ###   ########.fr       */
+/*   Created: 2021/01/31 16:17:33 by obouykou          #+#    #+#             */
+/*   Updated: 2021/01/31 18:55:26 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_H
-# define PONY_H
+#ifndef ZOMBIE_H
+#define ZOMBIE_H
 
-#include <iostream>
 #include <string>
+#include <iostream>
 
-class Pony
+class Zombie
 {
-	std::string 	name;
-	std::string		mainColor;
-	int				height;
+private:
+	std::string name;
+	std::string type;
 	
 public:
-	Pony(void);
-	Pony(std::string);
-	~Pony(void);
-	void			setName(std::string name);
-	std::string		getName(void);
-	void			setHeight(int);
-	int				getHeight(void);
-	void			setMainColor(std::string color);
-	std::string		getMainColor(void);
+	Zombie();
+	~Zombie();
+	void 		setName(std::string);
+	std::string getName(void);
+	void 		setType(std::string);
+	std::string getType(void);
+	void		announce();
 };
 
-#endif // !PONY_H
+
+#endif // !ZOMBIE_H

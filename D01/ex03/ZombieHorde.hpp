@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.hpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 11:11:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 16:08:54 by obouykou         ###   ########.fr       */
+/*   Created: 2021/01/31 18:55:52 by obouykou          #+#    #+#             */
+/*   Updated: 2021/01/31 19:30:49 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_H
-# define PONY_H
+#ifndef ZOMBIE_HORDE_H
+# define ZOMBIE_HORDE_H
 
-#include <iostream>
-#include <string>
+#include <unistd.h>
+#include <ctime>
 
-class Pony
+#include "Zombie.hpp"
+
+class ZombieHorde
 {
-	std::string 	name;
-	std::string		mainColor;
-	int				height;
-	
+private:
+	std::string	genRandomString(void);
+
 public:
-	Pony(void);
-	Pony(std::string);
-	~Pony(void);
-	void			setName(std::string name);
-	std::string		getName(void);
-	void			setHeight(int);
-	int				getHeight(void);
-	void			setMainColor(std::string color);
-	std::string		getMainColor(void);
+	ZombieHorde(int N);
+	~ZombieHorde();
 };
 
-#endif // !PONY_H
+
+#endif // !ZOMBIE_HORDE_H

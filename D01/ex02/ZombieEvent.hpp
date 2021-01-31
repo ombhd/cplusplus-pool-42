@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.hpp                                           :+:      :+:    :+:   */
+/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 11:11:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 16:08:54 by obouykou         ###   ########.fr       */
+/*   Created: 2021/01/31 16:31:22 by obouykou          #+#    #+#             */
+/*   Updated: 2021/01/31 19:35:33 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_H
-# define PONY_H
+#ifndef ZOMBIEVENT_H
+#define ZOMBIEVENT_H
 
-#include <iostream>
-#include <string>
+#include <ctime>
 
-class Pony
+#include "Zombie.hpp"
+
+class ZombieEvent
 {
-	std::string 	name;
-	std::string		mainColor;
-	int				height;
-	
+private:
+	std::string genRandomString(int len);
+
 public:
-	Pony(void);
-	Pony(std::string);
-	~Pony(void);
-	void			setName(std::string name);
-	std::string		getName(void);
-	void			setHeight(int);
-	int				getHeight(void);
-	void			setMainColor(std::string color);
-	std::string		getMainColor(void);
+	ZombieEvent();
+	~ZombieEvent();
+	void		setZombieType(Zombie &zombie, std::string type);
+	Zombie  	*newZombie(std::string name);
+	void		randomChump();
 };
 
-#endif // !PONY_H
+
+#endif // !ZOMBIEVENT_H

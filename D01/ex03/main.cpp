@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 11:11:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 16:08:54 by obouykou         ###   ########.fr       */
+/*   Created: 2021/01/31 19:29:55 by obouykou          #+#    #+#             */
+/*   Updated: 2021/01/31 19:30:21 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_H
-# define PONY_H
+#include "ZombieHorde.hpp"
 
-#include <iostream>
-#include <string>
-
-class Pony
+int main()
 {
-	std::string 	name;
-	std::string		mainColor;
-	int				height;
 	
-public:
-	Pony(void);
-	Pony(std::string);
-	~Pony(void);
-	void			setName(std::string name);
-	std::string		getName(void);
-	void			setHeight(int);
-	int				getHeight(void);
-	void			setMainColor(std::string color);
-	std::string		getMainColor(void);
-};
-
-#endif // !PONY_H
+    srand((unsigned int)time(NULL));
+	return (0);
+}
