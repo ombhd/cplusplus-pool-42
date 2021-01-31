@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 15:20:02 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/30 19:02:10 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:22:58 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		get_command(std::string &cmd)
 	{
 		std::cout << "\n\tType a command : \n\n\t◊ [ ADD ]\n\t◊ [ SEARCH ]\n\t◊ [ EXIT ]" << std::endl;
 		std::cout << "\n==========================> ";
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 		if (!(b = is_cmd_valid(cmd)))
 			std::cout << "\nPlease, type a valid command!" << std::endl;
 	}

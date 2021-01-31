@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 15:51:08 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 12:17:22 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/01/31 16:49:55 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <iomanip>
 #include <ctime>
+#include <limits>
 
 #include "contact.class.hpp"
 

@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:24:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 12:54:54 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/01/31 18:11:46 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void		PhoneBook::add_contact(void)
 {
 	std::string tmp;
 	std::tm date;
+	bool b;
 
 	std::cout << "\n-------------- Adding a contact ---------------\n" << std::endl;
 	if (noc == 8)
@@ -44,7 +45,6 @@ void		PhoneBook::add_contact(void)
 		std::cout << "You Can type EXIT to start a new fresh PhoneBook, but you'll lose the current PhoneBook :(" << std::endl;
 		return ;
 	}
-	std::getline(std::cin, tmp);
 	contacts[noc].setFirstName(get_field("First Name      : "));
 	contacts[noc].setLastName(get_field("Last Name       : "));
 	contacts[noc].setNickname(get_field("Nickname        : "));
@@ -54,18 +54,18 @@ void		PhoneBook::add_contact(void)
 	contacts[noc].setPhoneNumber(get_field("Phone Number    : "));
 	do
 	{
+		b = true;
 		std::cout << "Birthday Date [day-month-year] (Numbers ONLY) : ";
 		if (!(std::cin >> std::get_time(&date,"%d-%m-%Y")))
 		{
 			std::cout << "Error reading date, Please provide a valid date in this form [day-month-year]" << std::endl;
-			std::cin.clear();
-			std::cin.ignore();
+			b = false;
 		}
 		else
-			break ;
-	} while (1);
-	contacts[noc].setBirthdayDate(date);
-	std::getline(std::cin, tmp);
+			contacts[noc].setBirthdayDate(date);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	} while (b == false);
 	contacts[noc].setFavMeal(get_field("Favourite Meal  : "));
 	contacts[noc].setUnderwearColor(get_field("Underwear Color : "));
 	contacts[noc].setDarkestSecret(get_field("Darkest Secret  : "));
@@ -92,6 +92,7 @@ int			PhoneBook::get_index()
 {
 	int i;
 	bool b;
+	std::string tmp;
 	
 	do
 	{
@@ -101,10 +102,12 @@ int			PhoneBook::get_index()
 		{
 			std::cout << "Invalid index, Try again.." << std::endl;
 			std::cin.clear();
-			std::cin.ignore();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			b = false;
 		}
 	} while (b == false);
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return (i);
 }
 
