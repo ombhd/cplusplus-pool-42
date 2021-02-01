@@ -6,15 +6,14 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:16:44 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/01 16:00:14 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/01 16:14:38 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
+HumanB::HumanB(std::string name) : name(name)
 {
-	this->name = name;
 }
 
 HumanB::~HumanB()
