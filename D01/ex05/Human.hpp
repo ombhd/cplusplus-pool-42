@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 18:55:52 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/01 10:06:55 by obouykou         ###   ########.fr       */
+/*   Created: 2021/02/01 11:35:47 by obouykou          #+#    #+#             */
+/*   Updated: 2021/02/01 12:55:38 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HORDE_H
-# define ZOMBIE_HORDE_H
+#ifndef HUMAN_H
+#define HUMAN_H
 
-#include <ctime>
+#include "Brain.hpp"
 
-#include "Zombie.hpp"
-
-class ZombieHorde
+class Human
 {
 private:
-	Zombie		*zombieHorde;
-	int			numberOfZombies;
-	std::string	genRandomString(void);
+	const Brain brain;
 
 public:
-	ZombieHorde(int N);
-	~ZombieHorde();
-	void	announce();
+	Human(void);
+	~Human(void);
+	const Brain	&getBrain(void);
+	std::string identify(void);
 };
 
 
-#endif // !ZOMBIE_HORDE_H
+#endif // !HUMAN_H

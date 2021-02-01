@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 18:55:52 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/01 10:06:55 by obouykou         ###   ########.fr       */
+/*   Created: 2021/02/01 10:19:24 by obouykou          #+#    #+#             */
+/*   Updated: 2021/02/01 12:08:01 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HORDE_H
-# define ZOMBIE_HORDE_H
+#ifndef BRAIN_H
+#define	BRAIN_H
 
-#include <ctime>
+#include <string>
+#include <iostream>
+#include <sstream>
 
-#include "Zombie.hpp"
-
-class ZombieHorde
+class Brain
 {
 private:
-	Zombie		*zombieHorde;
-	int			numberOfZombies;
-	std::string	genRandomString(void);
+	int 		iq;
+	std::string	toupperAdress(std::string str) const;
 
 public:
-	ZombieHorde(int N);
-	~ZombieHorde();
-	void	announce();
+	Brain(void);
+	~Brain(void);
+	void		setIQ(int iq);
+	int			getIQ(void);
+	std::string identify(void) const;
+
 };
 
 
-#endif // !ZOMBIE_HORDE_H
+#endif // !BRAIN_H

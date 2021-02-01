@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 18:55:52 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/01 10:06:55 by obouykou         ###   ########.fr       */
+/*   Created: 2021/02/01 10:07:21 by obouykou          #+#    #+#             */
+/*   Updated: 2021/02/01 10:14:32 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HORDE_H
-# define ZOMBIE_HORDE_H
+#include <iostream>
+#include <string>
 
-#include <ctime>
-
-#include "Zombie.hpp"
-
-class ZombieHorde
+int main(void)
 {
-private:
-	Zombie		*zombieHorde;
-	int			numberOfZombies;
-	std::string	genRandomString(void);
+	std::string str = "HI THIS IS BRAIN";
+	std::string *strPtr = &str;
+	std::string &strRef = str;
 
-public:
-	ZombieHorde(int N);
-	~ZombieHorde();
-	void	announce();
-};
-
-
-#endif // !ZOMBIE_HORDE_H
+	std::cout << "\nDisplay str using Pointer to it   :|" << *strPtr << "|\n" << std::endl;
+	std::cout << "Display str using Reference to it :|" << strRef << "|\n" << std::endl;
+	
+	return 0;
+}

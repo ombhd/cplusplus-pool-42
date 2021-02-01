@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 18:55:52 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/01 10:06:55 by obouykou         ###   ########.fr       */
+/*   Created: 2021/02/01 11:16:09 by obouykou          #+#    #+#             */
+/*   Updated: 2021/02/01 12:57:51 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HORDE_H
-# define ZOMBIE_HORDE_H
+#include "Human.hpp"
 
-#include <ctime>
-
-#include "Zombie.hpp"
-
-class ZombieHorde
+int main()
 {
-private:
-	Zombie		*zombieHorde;
-	int			numberOfZombies;
-	std::string	genRandomString(void);
+	Human lmahjoub;
+	Human l3arbi;
 
-public:
-	ZombieHorde(int N);
-	~ZombieHorde();
-	void	announce();
-};
-
-
-#endif // !ZOMBIE_HORDE_H
+	std::cout << lmahjoub.identify() << std::endl;
+	std::cout << lmahjoub.getBrain().identify() << std::endl;
+	
+	std::cout << l3arbi.identify() << std::endl;
+	std::cout << l3arbi.getBrain().identify() << std::endl;
+	
+	return (0);
+}
