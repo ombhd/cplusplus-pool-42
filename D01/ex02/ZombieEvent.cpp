@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 16:35:30 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 18:52:40 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/01 09:59:50 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		ZombieEvent::setZombieType(Zombie &zombie, std::string type)
 std::string	ZombieEvent::genRandomString(const int len) 
 {
     std::string randomString;
-    const char alphanum[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const char alphanum[] = "abcdefghijklmnopqrstuvwxyz";
     
     randomString.reserve(len);
     for (int i = 0; i < len; ++i)
