@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:41:58 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/02 19:20:03 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/03 11:16:15 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ public:
 	~Fixed();
 
 	Fixed &operator=(const Fixed &);
-	std::ostream operator<<(const Fixed &);
 	int getRawBits(void) const; 
 	void setRawBits(int const raw);
 	float toFloat(void) const;
@@ -36,6 +35,8 @@ private:
 	int _fixedPointVal;
 	static const int numberOfFractBits = 8;
 };
+
+std::ostream &operator<<(std::ostream &, const Fixed &);
 
 
 #endif // !FIXED_HPP
