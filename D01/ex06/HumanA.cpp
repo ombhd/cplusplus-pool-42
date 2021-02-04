@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:16:44 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/01 16:00:00 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/03 18:48:25 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon)
 {
+	weapon.getType();
 	return ;
 }
 
@@ -32,17 +33,17 @@ std::string	HumanA::getName()
 	return (name);
 }
 
-void		HumanA::setWeapon(Weapon weapon)
+void		HumanA::setWeapon(Weapon wpn)
 {
-	this->weapon.setType(weapon.getType());
+	this->weapon.setType(wpn.getType());
 }
 
 Weapon		HumanA::getWeapon()
 {
-	return (this->weapon);
+	return (weapon);
 }
 
-void	HumanA::attack()
+void		HumanA::attack()
 {
 	std::cout << this->name <<" attacks with his " << this->weapon.getType() << std::endl;
 }
