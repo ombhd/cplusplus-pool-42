@@ -6,14 +6,14 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:04:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/05 12:43:12 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/05 12:50:06 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_H
 
 #include <iostream>
-#include <cstdlib>
+#include <unistd.h>
 
 class FragTrap
 {
@@ -23,6 +23,7 @@ public:
 	FragTrap(const FragTrap &);
 	FragTrap &operator=(const FragTrap &);
 	~FragTrap();
+
 // Getters & Setters
 	unsigned int	getHitPoints(void) const;	
 	void			setHitPoints(const unsigned int);
@@ -76,7 +77,6 @@ private:
 	unsigned int	_meleeAttackDamage;
 	unsigned int	_rangedAttackDamage;
 	unsigned int	_armorDamageReduction;
-	// not initialized yet
 	unsigned int	_vaulhunterDamagePoints;
 	unsigned int	_onePunchManAttackDamagePoints;
 	unsigned int	_sniperRifleAttackDamagePoints;

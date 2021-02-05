@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/05 12:45:05 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/05 12:51:06 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ FragTrap::~FragTrap()
 	return ;
 }
 
+/// It's not finished yet
 FragTrap &FragTrap::operator=(const FragTrap &src)
 {
 	this->setEnergyPoints(src.getEnergyPoints());
@@ -99,27 +100,34 @@ void			FragTrap::vaulthunter_dot_exe(std::string const & target)
 		return ;
 	}
 	std::cout << "\nBoogie time!\n" << std::endl;
+	sleep(2);
 	this->setEnergyPoints(this->getEnergyPoints() - 25);
 	int randomAttack =  rand() % 6 + 1;
 	switch (randomAttack)
 	{
 		case 1:
 			rocketAttack(target);
+			sleep(1);
 			break;
 		case 2:
 			zanbaktuAttack(target);
+			sleep(1);
 			break;
 		case 3:
 			sniperRifleAttack(target);
+			sleep(1);
 			break;
 		case 4:
 			seroAttack(target);
+			sleep(1);
 			break;
 		case 5:
 			onePunchManAttack(target);
+			sleep(1);
 			break;
 		case 6:
 			rasinganAttack(target);
+			sleep(1);
 			break;
 		default:
 			break;
@@ -182,7 +190,6 @@ void			FragTrap::rasinganAttack(std::string const &target)
 }
 
 // Getters and Setters
-
 unsigned int	FragTrap::getHitPoints(void) const
 {
 	return _hitPoints;
