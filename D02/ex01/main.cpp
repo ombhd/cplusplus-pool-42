@@ -6,16 +6,17 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 10:06:31 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/03 12:21:51 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:38:44 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 #include <iostream>
-// #include <cmath>
 
-int main( void ) {
+
+int main( void ) 
+{
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );
@@ -31,9 +32,8 @@ int main( void ) {
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return 0;
 	
-	// int a = roundf(12.3 * (1 << 8));
+	// int a = roundf(12 * (1 << 8));
 	// std::cout << a << std::endl;
 	// float b = (float) a / (1 << 8);
 	// std::cout << b << std::endl;
-	
 }
