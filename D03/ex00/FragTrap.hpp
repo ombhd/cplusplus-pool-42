@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:04:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/05 12:50:06 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/06 10:57:43 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ private:
 	unsigned int	_seroAttackDamagePoints;
 	unsigned int	_rocketAttackDamagePoints;
 	unsigned int	_rasinganAttackDamagePoints;
-	void	init(void);
+	void			init(void);
 // Super Attacks
 	void			zanbaktuAttack(std::string const &target);
 	void			rocketAttack(std::string const &target);

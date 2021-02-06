@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/05 12:51:06 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/06 11:46:05 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void			FragTrap::init(void)
 	_armorDamageReduction = 5;
 	_vaulhunterDamagePoints = 0;
 	_onePunchManAttackDamagePoints = 60;
-	_sniperRifleAttackDamagePoints = 5;
+	_sniperRifleAttackDamagePoints = 7;
 	_zanbaktuAttackDamagePoints = 20;
 	_seroAttackDamagePoints = 10;
-	_rocketAttackDamagePoints = 7;
+	_rocketAttackDamagePoints = 8;
 	_rasinganAttackDamagePoints = 25;
 }
 
@@ -82,7 +82,21 @@ void			FragTrap::meleeAttack(std::string const & target)
 
 void			FragTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "" << std::endl;
+	unsigned int totalDamage;
+
+	// We do this, because armor decreases the damage amount
+	totalDamage = amount - this->_armorDamageReduction;
+    if (totalDamage > this->_hitPoints)
+    {
+        this->_hitPoints = 0;
+        std::cout << this->_name << " 🦴 - I'M DEAD! I'M DEAD! OMG I'M DEAD! X_X" << std::endl;
+		return ;
+    }
+	this->_hitPoints -= totalDamage;
+	std::cout << this->_name << "Hahahahaha! I'm alive! 😈" << std::endl;
+	std::cout << "I got " << this->_hitPoints << " / " << this->_maxHitPoints << " HP left" << std::endl;
+	std::cout << "Despite of taking " << totalDamage << " Damage" << std::endl;
+    return ;
 }
 
 void			FragTrap::beRepaired(unsigned int amount)
