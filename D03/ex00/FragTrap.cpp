@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/06 11:46:05 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/06 13:02:22 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,26 +82,39 @@ void			FragTrap::meleeAttack(std::string const & target)
 
 void			FragTrap::takeDamage(unsigned int amount)
 {
-	unsigned int totalDamage;
+	unsigned int actualDamage;
 
 	// We do this, because armor decreases the damage amount
-	totalDamage = amount - this->_armorDamageReduction;
-    if (totalDamage > this->_hitPoints)
+	actualDamage = amount - this->_armorDamageReduction;
+    if (actualDamage > this->_hitPoints)
     {
         this->_hitPoints = 0;
         std::cout << this->_name << " 🦴 - I'M DEAD! I'M DEAD! OMG I'M DEAD! X_X" << std::endl;
 		return ;
     }
-	this->_hitPoints -= totalDamage;
+	this->_hitPoints -= actualDamage;
 	std::cout << this->_name << "Hahahahaha! I'm alive! 😈" << std::endl;
 	std::cout << "I got " << this->_hitPoints << " / " << this->_maxHitPoints << " HP left" << std::endl;
-	std::cout << "Despite of taking " << totalDamage << " Damage" << std::endl;
+	std::cout << "Despite of taking " << actualDamage << " Damage" << std::endl;
     return ;
 }
 
 void			FragTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "/* message */" << std::endl;
+	if (this->_energyPoints < amount)
+    {
+        std::cout << this->_name << ": Not enough energy... :(" << std::endl;
+   		std::cout << " 💚 - Energy points left: " << this->_energyPoints 
+		   		  << " / " << this->_maxEnergyPoints << std::endl;
+		return ;
+    }
+	
+	this->_energyPoints -= (this->_energyPoints - amount) >= 0 ? amount : this->_energyPoints;
+	this->_hitPoints += (this->_hitPoints + amount) <= this->_maxHitPoints ? amount : this->_maxHitPoints - this->_hitPoints;
+	std::cout << this->_name << " 💊 - Found Health over here!" << std::endl;
+	std::cout << "  - HP points: " << this->_hitPoints << std::endl;
+    std::cout << " 💚 - Energy points left: " << this->_energyPoints << " / "<< this->_maxEnergyPoints << std::endl;
+    return ;
 }
 
 // Attacks
