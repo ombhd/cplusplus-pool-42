@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:04:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/06 19:20:42 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/07 10:16:53 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ public:
 	void			setRangedAttackDamage(const unsigned int);
 	unsigned int	getArmorDamageReduction(void) const;	
 	void			setArmorDamageReduction(const unsigned int);
-	unsigned int	getVaulhunterDamagePoints(void) const;
-	void			setVaulhunterDamagePoints(const unsigned int);
+	unsigned int	getChallengeNewComerPoints(void) const;
+	void			setChallengeNewComerPoints(const unsigned int);
 	unsigned int	getOnePunchManAttackDamagePoints(void) const;
 	void			setOnePunchManAttackDamagePoints(const unsigned int);
 	unsigned int	getSniperRifleAttackDamagePoints(void) const;

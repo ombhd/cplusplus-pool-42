@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/07 12:57:37 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/07 11:39:27 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
-FragTrap::FragTrap()
+ClapTrap::ClapTrap()
 {
-	init();
-	std::cout << "Let's get this party started!" << std::endl;
 	return ;
 }
 
-FragTrap::FragTrap(std::string name) : _name(name)
+ClapTrap::ClapTrap(std::string name) : _name(name)
 {
-	init();
-	std::cout << _name << ": this time it'll be awesome, I promise!" << std::endl;
 	return ;
 }
 
-FragTrap::~FragTrap()
+ClapTrap::~ClapTrap()
 {
-	std::cout << _name << " : I'll die the way I lived: annoying!" << std::endl;
 	return ;
 }
 
-FragTrap &FragTrap::operator=(const FragTrap &src)
+ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
 	this->setHitPoints(src.getHitPoints());
 	this->setMaxHitPoints(src.getMaxHitPoints());
@@ -43,7 +38,6 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 	this->setMeleeAttackDamage(src.getMeleeAttackDamage());
 	this->setRangedAttackDamage(src.getRangedAttackDamage());
 	this->setArmorDamageReduction(src.getArmorDamageReduction());
-	this->setVaulhunterDamagePoints(src.getVaulhunterDamagePoints());
 	this->setOnePunchManAttackDamagePoints(src.getOnePunchManAttackDamagePoints());
 	this->setSniperRifleAttackDamagePoints(src.getSniperRifleAttackDamagePoints());
 	this->setZanbaktuAttackDamagePoints(src.getZanbaktuAttackDamagePoints());
@@ -53,7 +47,7 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 	return *this;
 }
 
-bool			FragTrap::is_alive() const
+bool			ClapTrap::is_alive() const
 {
 	if (this->_hitPoints == 0)
 	{
@@ -63,46 +57,27 @@ bool			FragTrap::is_alive() const
 	return (true);
 }
 
-void			FragTrap::init(void)
-{
-	_hitPoints = 100;
-	_maxHitPoints = 100;
-	_energyPoints = 100;
-	_maxEnergyPoints = 100;
-	_level = 1;
-	_meleeAttackDamage = 30;
-	_rangedAttackDamage = 20;
-	_armorDamageReduction = 5;
-	_vaulhunterDamagePoints = 0;
-	_onePunchManAttackDamagePoints = 100;
-	_sniperRifleAttackDamagePoints = 7;
-	_zanbaktuAttackDamagePoints = 20;
-	_seroAttackDamagePoints = 10;
-	_rocketAttackDamagePoints = 8;
-	_rasinganAttackDamagePoints = 25;
-}
-
-void			FragTrap::rangedAttack(std::string const & target)
+void			ClapTrap::rangedAttack(std::string const & target)
 {
 	if (!this->is_alive())
 		return ;
 	std::cout << " 🔫 - FR4G-TP " << this->_name << " attacks " \
 			  << target << " at range, causing " << this->_rangedAttackDamage \
 			  << " points of damage!" << std::endl;
-			  
+	  
 	// Get energy points when you attack a target
 	if (this->_energyPoints + this->_rangedAttackDamage >= this->_maxEnergyPoints)
 		this->_energyPoints = this->_maxEnergyPoints;
 	else
 		this->_energyPoints += this->_rangedAttackDamage;
-	
+
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
     std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
     return ;
 }
 
-void			FragTrap::meleeAttack(std::string const & target)
+void			ClapTrap::meleeAttack(std::string const & target)
 {
 	if (!this->is_alive())
 		return ;
@@ -122,38 +97,33 @@ void			FragTrap::meleeAttack(std::string const & target)
     return ;
 }
 
-void			FragTrap::takeDamage(unsigned int amount)
+void			ClapTrap::takeDamage(unsigned int amount)
 {
 	unsigned int actualDamage;
 
 	if (!this->is_alive())
 		return ;
-	if (amount == 0)
-	{
-		std::cout << this->_name << " 🦴 - What a weak child!" << std::endl;
-		return ;
-	}
 	// We do this, because armor decreases the damage amount by _armorDamageReduction value
 	actualDamage = amount - this->_armorDamageReduction;
     if (actualDamage >= this->_hitPoints)
     {
         this->_hitPoints = 0;
-        std::cout << this->_name << " 🦴 - Don't forget me! I'M DEAD! X_X" << std::endl;
+        std::cout << this->_name << " 🦴 - I'M DEAD! I'M DEAD! OMG I'M DEAD! X_X" << std::endl;
 		return ;
     }
 	this->_hitPoints -= actualDamage;
-	std::cout << " 😈 " << this->_name << " : LOL! That's all the power you've got! I'm STILL alive, YEAH!";
-	std::cout << " And I have " << this->_hitPoints << "/"  << this->_maxHitPoints << " HP left";
+	std::cout << this->_name << " 😈 - Hahahahaha! I'm alive!" << std::endl;
+	std::cout << " And I have " << this->_hitPoints << "/"  << this->_maxHitPoints << " HP left" << std::endl;
 	std::cout << " Despite of taking " << actualDamage << " Damage" << std::endl;
     return ;
 }
 
-void			FragTrap::beRepaired(unsigned int amount)
+void			ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_energyPoints < amount)
     {
-        std::cout << "  😰 " << this->_name << " : I have NOT enough energy points.." << std::endl;
-   		std::cout << " 💛 - Energy points left: " << this->_energyPoints 
+        std::cout << this->_name << ": I have NOT enough energy points.." << std::endl;
+   		std::cout << " 💚 - Energy points left: " << this->_energyPoints 
 		   		  << "/"  << this->_maxEnergyPoints << std::endl;
 		return ;
     }
@@ -169,13 +139,13 @@ void			FragTrap::beRepaired(unsigned int amount)
 
 	std::cout << this->_name << " 💊 - Found Health over here!" << std::endl;
 	std::cout << "    - HP points: " << this->_hitPoints << std::endl;
-    std::cout << " 💛 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
     return ;
 }
 
 // Attacks
 
-void			FragTrap::vaulthunter_dot_exe(std::string const & target)
+void			ClapTrap::vaulthunter_dot_exe(std::string const & target)
 {
 	if (!this->is_alive())
 		return ;
@@ -230,7 +200,7 @@ void			FragTrap::vaulthunter_dot_exe(std::string const & target)
     return ;
 }
 
-void			FragTrap::rocketAttack(std::string const &target)
+void			ClapTrap::rocketAttack(std::string const &target)
 {
     this->_vaulhunterDamagePoints = this->_rocketAttackDamagePoints;
     std::cout << " 🚀 - FR4G-TP " << this->_name << " attacks " << target \
@@ -239,7 +209,7 @@ void			FragTrap::rocketAttack(std::string const &target)
     return ;
 }
 
-void			FragTrap::seroAttack(std::string const &target)
+void			ClapTrap::seroAttack(std::string const &target)
 {
 	this->_vaulhunterDamagePoints = this->_seroAttackDamagePoints;
     std::cout << " ➿ - FR4G-TP " << this->_name << " attacks " << target \
@@ -248,7 +218,7 @@ void			FragTrap::seroAttack(std::string const &target)
     return ;
 }
 
-void			FragTrap::zanbaktuAttack(std::string const &target)
+void			ClapTrap::zanbaktuAttack(std::string const &target)
 {
     this->_vaulhunterDamagePoints = this->_zanbaktuAttackDamagePoints;
     std::cout << " 💀 - FR4G-TP " << this->_name << " attacks " << target \
@@ -257,7 +227,7 @@ void			FragTrap::zanbaktuAttack(std::string const &target)
     return ;
 }
 
-void			FragTrap::onePunchManAttack(std::string const &target)
+void			ClapTrap::onePunchManAttack(std::string const &target)
 {
     this->_vaulhunterDamagePoints = this->_onePunchManAttackDamagePoints;
     std::cout << " 🤛👨‍🦲- FR4G-TP " << this->_name << " attacks " << target \
@@ -266,7 +236,7 @@ void			FragTrap::onePunchManAttack(std::string const &target)
     return ;
 }
 
-void			FragTrap::sniperRifleAttack(std::string const &target)
+void			ClapTrap::sniperRifleAttack(std::string const &target)
 {
     this->_vaulhunterDamagePoints = this->_sniperRifleAttackDamagePoints;
     std::cout << " 🔦 - FR4G-TP " << this->_name << " attacks " << target \
@@ -275,7 +245,7 @@ void			FragTrap::sniperRifleAttack(std::string const &target)
     return ;
 }
 
-void			FragTrap::rasinganAttack(std::string const &target)
+void			ClapTrap::rasinganAttack(std::string const &target)
 {
 	this->_vaulhunterDamagePoints = this->_rasinganAttackDamagePoints;
     std::cout << " 🌀 - FR4G-TP " << this->_name << " attacks " << target \
@@ -285,162 +255,162 @@ void			FragTrap::rasinganAttack(std::string const &target)
 }
 
 // Getters and Setters
-unsigned int	FragTrap::getHitPoints(void) const
+unsigned int	ClapTrap::getHitPoints(void) const
 {
 	return _hitPoints;
 }
 
-void			FragTrap::setHitPoints(const unsigned int hp)
+void			ClapTrap::setHitPoints(const unsigned int hp)
 {
 	_hitPoints = hp;
 }
 
-unsigned int	FragTrap::getMaxHitPoints(void) const
+unsigned int	ClapTrap::getMaxHitPoints(void) const
 {
 	return _maxHitPoints;
 }	
 
-void			FragTrap::setMaxHitPoints(const unsigned int maxHP)
+void			ClapTrap::setMaxHitPoints(const unsigned int maxHP)
 {
 	_maxHitPoints = maxHP;
 }
 
-unsigned int	FragTrap::getEnergyPoints(void) const
+unsigned int	ClapTrap::getEnergyPoints(void) const
 {
 	return _energyPoints; 
 }	
 
-void			FragTrap::setEnergyPoints(const unsigned int energyPoints)
+void			ClapTrap::setEnergyPoints(const unsigned int energyPoints)
 {
 	_energyPoints = energyPoints;
 }
 
-unsigned int	FragTrap::getMaxEnergyPoints(void) const
+unsigned int	ClapTrap::getMaxEnergyPoints(void) const
 {
 	return _maxEnergyPoints;
 }	
 
-void			FragTrap::setMaxEnergyPoints(const unsigned int maxEnergyPoints)
+void			ClapTrap::setMaxEnergyPoints(const unsigned int maxEnergyPoints)
 {
 	_maxEnergyPoints = maxEnergyPoints;
 }
 
-unsigned int	FragTrap::getLevel(void) const
+unsigned int	ClapTrap::getLevel(void) const
 {
 	return _level;
 }	
 
-void			FragTrap::setLevel(const unsigned int level)
+void			ClapTrap::setLevel(const unsigned int level)
 {
 	_level = level;
 }
 
-std::string		FragTrap::getName(void) const
+std::string		ClapTrap::getName(void) const
 {
 	return _name;
 }	
 
-void			FragTrap::setName(const std::string name)
+void			ClapTrap::setName(const std::string name)
 {
 	_name = name;
 }
 
-unsigned int	FragTrap::getMeleeAttackDamage(void) const
+unsigned int	ClapTrap::getMeleeAttackDamage(void) const
 {
 	return _meleeAttackDamage;
 }	
 
-void			FragTrap::setMeleeAttackDamage(const unsigned int mad)
+void			ClapTrap::setMeleeAttackDamage(const unsigned int mad)
 {
 	_meleeAttackDamage = mad;
 }
 
-unsigned int	FragTrap::getRangedAttackDamage(void) const
+unsigned int	ClapTrap::getRangedAttackDamage(void) const
 {
 	return _rangedAttackDamage;
 }	
 
-void			FragTrap::setRangedAttackDamage(const unsigned int rad)
+void			ClapTrap::setRangedAttackDamage(const unsigned int rad)
 {
 	_rangedAttackDamage = rad;
 }
 
-unsigned int	FragTrap::getArmorDamageReduction(void) const
+unsigned int	ClapTrap::getArmorDamageReduction(void) const
 {
 	return _armorDamageReduction;
 }	
 
-void			FragTrap::setArmorDamageReduction(const unsigned int adr)
+void			ClapTrap::setArmorDamageReduction(const unsigned int adr)
 {
 	_armorDamageReduction = adr;
 }
 
-unsigned int	FragTrap::getVaulhunterDamagePoints(void) const
+unsigned int	ClapTrap::getVaulhunterDamagePoints(void) const
 {
 	return _vaulhunterDamagePoints ;
 }
 
-void			FragTrap::setVaulhunterDamagePoints(const unsigned int adr)
+void			ClapTrap::setVaulhunterDamagePoints(const unsigned int adr)
 {
 	_vaulhunterDamagePoints = adr;
 }
 
-unsigned int	FragTrap::getOnePunchManAttackDamagePoints(void) const
+unsigned int	ClapTrap::getOnePunchManAttackDamagePoints(void) const
 {
 	return _onePunchManAttackDamagePoints;
 }
 
-void			FragTrap::setOnePunchManAttackDamagePoints(const unsigned int opmDP)
+void			ClapTrap::setOnePunchManAttackDamagePoints(const unsigned int opmDP)
 {
 	_onePunchManAttackDamagePoints = opmDP;
 }
 
-unsigned int	FragTrap::getSniperRifleAttackDamagePoints(void) const
+unsigned int	ClapTrap::getSniperRifleAttackDamagePoints(void) const
 {
 	return _sniperRifleAttackDamagePoints;
 }
 
-void			FragTrap::setSniperRifleAttackDamagePoints(const unsigned int srDP)
+void			ClapTrap::setSniperRifleAttackDamagePoints(const unsigned int srDP)
 {
 	_sniperRifleAttackDamagePoints = srDP;
 }
 
-unsigned int	FragTrap::getZanbaktuAttackDamagePoints(void) const
+unsigned int	ClapTrap::getZanbaktuAttackDamagePoints(void) const
 {
 	return _zanbaktuAttackDamagePoints;
 }
 
-void			FragTrap::setZanbaktuAttackDamagePoints(const unsigned int zDP)
+void			ClapTrap::setZanbaktuAttackDamagePoints(const unsigned int zDP)
 {
 	_zanbaktuAttackDamagePoints = zDP;
 }
 
-unsigned int	FragTrap::getSeroAttackDamagePoints(void) const
+unsigned int	ClapTrap::getSeroAttackDamagePoints(void) const
 {
 	return _seroAttackDamagePoints;
 }
 
-void			FragTrap::setSeroAttackDamagePoints(const unsigned int sDP)
+void			ClapTrap::setSeroAttackDamagePoints(const unsigned int sDP)
 {
 	_seroAttackDamagePoints = sDP;
 }
 
-unsigned int	FragTrap::getRocketAttackDamagePoints(void) const
+unsigned int	ClapTrap::getRocketAttackDamagePoints(void) const
 {
 	return _rocketAttackDamagePoints;
 }
 
-void			FragTrap::setRocketAttackDamagePoints(const unsigned int roDP)
+void			ClapTrap::setRocketAttackDamagePoints(const unsigned int roDP)
 {
 	_rocketAttackDamagePoints = roDP;
 }
 
-unsigned int	FragTrap::getRasinganAttackDamagePoints(void) const
+unsigned int	ClapTrap::getRasinganAttackDamagePoints(void) const
 {
 	return _rasinganAttackDamagePoints;
 }
 
-void			FragTrap::setRasinganAttackDamagePoints(const unsigned int raDP)
+void			ClapTrap::setRasinganAttackDamagePoints(const unsigned int raDP)
 {
 	_rasinganAttackDamagePoints = raDP;
 }

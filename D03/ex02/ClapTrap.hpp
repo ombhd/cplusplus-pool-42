@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:04:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/07 11:30:22 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/07 12:53:52 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_H
-#define FRAGTRAP_H
+#ifndef CLAPTRAP_H
+#define CLAPTRAP_H
 
 #include <iostream>
 #include <unistd.h>
 
-class FragTrap
+class ClapTrap
 {
 public:
-	FragTrap();
-	FragTrap(std::string name);
-	FragTrap(const FragTrap &);
-	FragTrap &operator=(const FragTrap &);
-	~FragTrap();
+	ClapTrap();
+	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap&);
+	ClapTrap&operator=(const ClapTrap&);
+	~ClapTrap();
 
 	bool			is_alive() const;
 // Getters & Setters
@@ -45,20 +45,6 @@ public:
 	void			setRangedAttackDamage(const unsigned int);
 	unsigned int	getArmorDamageReduction(void) const;	
 	void			setArmorDamageReduction(const unsigned int);
-	unsigned int	getVaulhunterDamagePoints(void) const;
-	void			setVaulhunterDamagePoints(const unsigned int);
-	unsigned int	getOnePunchManAttackDamagePoints(void) const;
-	void			setOnePunchManAttackDamagePoints(const unsigned int);
-	unsigned int	getSniperRifleAttackDamagePoints(void) const;
-	void			setSniperRifleAttackDamagePoints(const unsigned int);
-	unsigned int	getZanbaktuAttackDamagePoints(void) const;
-	void			setZanbaktuAttackDamagePoints(const unsigned int);
-	unsigned int	getSeroAttackDamagePoints(void) const;
-	void			setSeroAttackDamagePoints(const unsigned int);
-	unsigned int	getRocketAttackDamagePoints(void) const;
-	void			setRocketAttackDamagePoints(const unsigned int);
-	unsigned int	getRasinganAttackDamagePoints(void) const;
-	void			setRasinganAttackDamagePoints(const unsigned int);
 
 // Normal Attacks
 	void			rangedAttack(std::string const & target);
@@ -66,8 +52,7 @@ public:
 // energy points handling
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
-// Super Semi random Attack
-	void			vaulthunter_dot_exe(std::string const &target);
+
 
 private:
 	unsigned int	_hitPoints;
@@ -79,21 +64,6 @@ private:
 	unsigned int	_meleeAttackDamage;
 	unsigned int	_rangedAttackDamage;
 	unsigned int	_armorDamageReduction;
-	unsigned int	_vaulhunterDamagePoints;
-	unsigned int	_onePunchManAttackDamagePoints;
-	unsigned int	_sniperRifleAttackDamagePoints;
-	unsigned int	_zanbaktuAttackDamagePoints;
-	unsigned int	_seroAttackDamagePoints;
-	unsigned int	_rocketAttackDamagePoints;
-	unsigned int	_rasinganAttackDamagePoints;
-	void			init(void);
-// Super Attacks
-	void			zanbaktuAttack(std::string const &target);
-	void			rocketAttack(std::string const &target);
-	void			sniperRifleAttack(std::string const &target);
-	void			seroAttack(std::string const &target);
-	void			onePunchManAttack(std::string const &target);
-	void			rasinganAttack(std::string const &target);
 };
 
-#endif // !FRAGTRAP_H
+#endif // !CLAPTRAP_H
