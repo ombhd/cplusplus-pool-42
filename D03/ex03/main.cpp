@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 12:51:19 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/08 19:03:10 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:45:02 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int		main(void)
 	FragTrap bigFrag("bigFrag");
 	sep();
 	FragTrap bob("bob");
-	bob.beRepaired(100);
 	sep();
 	FragTrap hacker("hacker");
 	sep();
@@ -81,8 +80,7 @@ int		main(void)
 		sep();
 		shrider.challengeNewcomer(bigFrag.getName());
 		sep();
-		if (shrider.getChallengeNewComerPoints() >= 25)
-			shrider.takeDamage(shrider.getChallengeNewComerPoints());
+		shrider.takeDamage(shrider.getChallengeNewComerPoints());
 		sep();
 		mark.rangedAttack(bigScav.getName());
 		sep();

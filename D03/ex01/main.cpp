@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 12:51:19 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/08 12:59:45 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/08 17:40:01 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ int		main(void)
 {
 	bool ob = true;
 	bool ov = true;
-	// FragTrap
+	
 	std::cout << "\nGame start ..\n" << std::endl;
 	sleep(1);
-	FragTrap bob("bob");
+	FragTrap bigFrag("bigFrag");
 	sep();
-	FragTrap omar("omar");
+	FragTrap bob("bob");
 	sep();
 	FragTrap hacker("hacker");
 	sep();
 	
 	// ScavTrap
-	ScavTrap vilan("vilan");
+	ScavTrap bigScav("bigScav");
 	sep();
 	ScavTrap shrider("shrider");
 	sep();
@@ -44,47 +44,47 @@ int		main(void)
 	std::cout << "\nStart fighting .." << std::endl;
 	sep();
 	srand(time(NULL));
-	while (omar.is_alive() && vilan.is_alive())
+	while (bigFrag.is_alive() && bigScav.is_alive())
 	{
 		// ClapTrap
 		if (bob.is_alive())
-			omar.meleeAttack(bob.getName());
+			bigFrag.meleeAttack(bob.getName());
 		sep();		
 		if (!bob.is_alive() && ob)
 		{
-			omar.beRepaired(omar.getMeleeAttackDamage());
+			bigFrag.beRepaired(bigFrag.getMeleeAttackDamage());
 			sep();
 			ob = false;
 		}
-		bob.takeDamage(omar.getMeleeAttackDamage());
+		bob.takeDamage(bigFrag.getMeleeAttackDamage());
 		sep();
-		bob.vaulthunter_dot_exe(omar.getName());
+		bob.vaulthunter_dot_exe(bigFrag.getName());
 		sep();		
-		omar.takeDamage(bob.getVaulhunterDamagePoints());
+		bigFrag.takeDamage(bob.getVaulhunterDamagePoints());
 		sep();
-		hacker.rangedAttack(omar.getName());
+		hacker.rangedAttack(bigFrag.getName());
 		sep();
-		omar.takeDamage(hacker.getRangedAttackDamage());
+		bigFrag.takeDamage(hacker.getRangedAttackDamage());
 		sep();
 
 		// ScavTrap
-		vilan.meleeAttack(shrider.getName());
+		bigScav.meleeAttack(shrider.getName());
 		sep();
-		if (!shrider.is_alive() && ov)
+		if (ov)
 		{
-			vilan.beRepaired(vilan.getMeleeAttackDamage());
+			bigScav.beRepaired(bigScav.getMeleeAttackDamage());
 			sep();
 			ov = false;
 		}
-		shrider.takeDamage(vilan.getMeleeAttackDamage());
+		shrider.takeDamage(bigScav.getMeleeAttackDamage());
 		sep();
-		shrider.challengeNewcomer(omar.getName());
+		shrider.challengeNewcomer(bigFrag.getName());
 		sep();
 		shrider.takeDamage(shrider.getChallengeNewComerPoints());
 		sep();
-		mark.rangedAttack(vilan.getName());
+		mark.rangedAttack(bigScav.getName());
 		sep();
-		vilan.takeDamage(mark.getRangedAttackDamage());
+		bigScav.takeDamage(mark.getRangedAttackDamage());
 		sep();
 	}
 	return 0;

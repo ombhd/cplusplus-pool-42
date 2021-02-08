@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/07 11:39:27 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:39:14 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name) : _name(name)
 {
+	std::cout << " ⬇ ClapClap in" << std::endl;
 	return ;
 }
 
 ClapTrap::~ClapTrap()
 {
+	std::cout << " ⬆ ClapClap out" << std::endl << std::endl;
 	return ;
 }
 
@@ -45,7 +47,7 @@ bool			ClapTrap::is_alive() const
 {
 	if (this->_hitPoints == 0)
 	{
-        // std::cout << this->_name << " 🦴 - Who Called Me to My Duty!!? I'M Already DEAD! X_X" << std::endl;
+        std::cout << this->_name << " 💀 - Who Called Me to My Duty!!? I'M Already DEAD! X_X" << std::endl;
 		return false;
 	}
 	return (true);
@@ -58,16 +60,16 @@ void			ClapTrap::rangedAttack(std::string const & target)
 	std::cout << " 🔫 - FR4G-TP " << this->_name << " attacks " \
 			  << target << " at range, causing " << this->_rangedAttackDamage \
 			  << " points of damage!" << std::endl;
-	  
+			  
 	// Get energy points when you attack a target
 	if (this->_energyPoints + this->_rangedAttackDamage >= this->_maxEnergyPoints)
 		this->_energyPoints = this->_maxEnergyPoints;
 	else
 		this->_energyPoints += this->_rangedAttackDamage;
-
+	
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
-    std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -87,7 +89,7 @@ void			ClapTrap::meleeAttack(std::string const & target)
 
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
-    std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -99,7 +101,7 @@ void			ClapTrap::takeDamage(unsigned int amount)
 		return ;
 	if (amount == 0)
 	{
-		std::cout << this->_name << " 🦴 - What a weak child!" << std::endl;
+		std::cout << " 😹 " << this->_name << ": What a weak child!" << std::endl;
 		return ;
 	}
 	// We do this, because armor decreases the damage amount by _armorDamageReduction value
@@ -111,19 +113,22 @@ void			ClapTrap::takeDamage(unsigned int amount)
 		return ;
     }
 	this->_hitPoints -= actualDamage;
-	std::cout << " 😈 " << this->_name << " : LOL! That's all the power you've got! I'm STILL alive, YEAH!";
-	std::cout << " And I have " << this->_hitPoints << "/"  << this->_maxHitPoints << " HP left";
-	std::cout << " Despite of taking " << actualDamage << " Damage" << std::endl;
+	std::cout << " 😈 " << this->_name << ": LOL! That's all the power you've got! I'm STILL alive, YEAH!" << std::endl;
+	std::cout << "    - Taken Damage: " << actualDamage << std::endl;
+	std::cout << "    - HP left: " << this->_hitPoints << "/"  << this->_maxHitPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
 void			ClapTrap::beRepaired(unsigned int amount)
 {
+	if (!this->is_alive())
+		return ;
 	if (this->_energyPoints < amount)
     {
         std::cout << "  😰 " << this->_name << " : I have NOT enough energy points.." << std::endl;
-   		std::cout << " 💛 - Energy points left: " << this->_energyPoints 
-		   		  << "/"  << this->_maxEnergyPoints << std::endl;
+   		std::cout << "    - Energy points left: " << this->_energyPoints 
+		   		  << "/"  << this->_maxEnergyPoints << "💛" << std::endl;
 		return ;
     }
 
@@ -136,9 +141,9 @@ void			ClapTrap::beRepaired(unsigned int amount)
 	else
 		this->_hitPoints = this->_maxHitPoints;
 
-	std::cout << this->_name << " 💊 - Found Health over here!" << std::endl;
+	std::cout << " 💊 " << this->_name << ": Found Health over here!" << std::endl;
 	std::cout << "    - HP points: " << this->_hitPoints << std::endl;
-    std::cout << " 💛 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 

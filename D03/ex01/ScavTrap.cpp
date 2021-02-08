@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/08 12:59:31 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/08 15:29:44 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,19 @@ void			ScavTrap::init(void)
 	_rangedAttackDamage = 15;
 	_armorDamageReduction = 3;
 	_challengeNewComerPoints = 0;
-	_onePunchManAttackDamagePoints = 60;
-	_sniperRifleAttackDamagePoints = 7;
-	_zanbaktuAttackDamagePoints = 20;
-	_seroAttackDamagePoints = 10;
-	_lazerAttackDamagePoints = 8;
-	_rasinganAttackDamagePoints = 25;
+	_onePunchManAttackDamagePoints = 200;
+	_sniperRifleAttackDamagePoints = 13;
+	_zanbaktuAttackDamagePoints = 37;
+	_seroAttackDamagePoints = 21;
+	_lazerAttackDamagePoints = 12;
+	_rasinganAttackDamagePoints = 30;
 }
 
 bool			ScavTrap::is_alive() const
 {
 	if (this->_hitPoints == 0)
 	{
-        // std::cout << this->_name << " 🦴 - Who Called Me to My Duty!!? I'M Already DEAD! X_X" << std::endl;
+        std::cout << " 💀 "<< this->_name << ": Already DEAD! Don't call me! X_X" << std::endl;
 		return false;
 	}
 	return (true);
@@ -98,7 +98,7 @@ void			ScavTrap::rangedAttack(std::string const & target)
 	
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
-    std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -118,7 +118,7 @@ void			ScavTrap::meleeAttack(std::string const & target)
 
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
-    std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -143,8 +143,9 @@ void			ScavTrap::takeDamage(unsigned int amount)
     }
 	this->_hitPoints -= actualDamage;
 	std::cout << " 😈 " << this->_name << ": LOL! That's all the power you've got! I'm STILL alive, YEAH!" << std::endl;
-	std::cout << "  - Taken Damage: " << actualDamage << std::endl;
-	std::cout << "  - HP left: " << this->_hitPoints << "/"  << this->_maxHitPoints << std::endl;
+	std::cout << "    - Taken Damage: " << actualDamage << std::endl;
+	std::cout << "    - HP left: " << this->_hitPoints << "/"  << this->_maxHitPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -155,8 +156,8 @@ void			ScavTrap::beRepaired(unsigned int amount)
 	if (this->_energyPoints < amount)
     {
         std::cout << "  😰 " << this->_name << " : I have NOT enough energy points.." << std::endl;
-   		std::cout << " 💛 - Energy points left: " << this->_energyPoints 
-		   		  << "/"  << this->_maxEnergyPoints << std::endl;
+   		std::cout << "  - Energy points left: " << this->_energyPoints 
+		   		  << "/"  << this->_maxEnergyPoints << "💛" << std::endl;
 		return ;
     }
 
@@ -171,18 +172,18 @@ void			ScavTrap::beRepaired(unsigned int amount)
 
 	std::cout << " 💊 " << this->_name << ": Found Health over here!" << std::endl;
 	std::cout << "    - HP points: " << this->_hitPoints << std::endl;
-    std::cout << " 💛 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "  - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
 // Attacks
-void			ScavTrap::challengeNewcomer(std::string const & target)
+void			ScavTrap::challengeNewcomer(std::string const &attacker)
 {
 	if (!this->is_alive())
 		return ;
 	if (this->getEnergyPoints() < 25)
 	{
-		std::cout << " 🤣 - You are too weak to take this challenge" << std::endl;
+		std::cout << " 🤣 Oh " << this->_name << "! You are too weak to take the New Comer Challenge .." << std::endl;
 		return ;
 	}
 	std::cout << "\n Challenge time! ..\n" << std::endl;
@@ -196,27 +197,27 @@ void			ScavTrap::challengeNewcomer(std::string const & target)
 		switch (randomChallenge)
 		{
 			case 1:
-				lazerAttack(target);
+				lazerAttack(attacker);
 				sleep(1);
 				break;
 			case 2:
-				zanbaktuAttack(target);
+				zanbaktuAttack(attacker);
 				sleep(1);
 				break;
 			case 3:
-				sniperRifleAttack(target);
+				sniperRifleAttack(attacker);
 				sleep(1);
 				break;
 			case 4:
-				seroAttack(target);
+				seroAttack(attacker);
 				sleep(1);
 				break;
 			case 5:
-				onePunchManAttack(target);
+				onePunchManAttack(attacker);
 				sleep(1);
 				break;
 			case 6:
-				rasinganAttack(target);
+				rasinganAttack(attacker);
 				sleep(1);
 				break;
 			default:
@@ -224,73 +225,73 @@ void			ScavTrap::challengeNewcomer(std::string const & target)
 		}
 	else
 	{
-		std::cout << this->_name << ": I am lucky, this new comer has no challenge for me .." << std::endl;
+		std::cout << "  " << this->_name << ": I am lucky, this new comer has no challenge for me .." << std::endl;
 		_challengeNewComerPoints = 0;
 		return ;
 	}
 
-	// Get energy points when you attack a target
-	if (this->_energyPoints + this->_challengeNewComerPoints >= this->_maxEnergyPoints)
-		this->_energyPoints = this->_maxEnergyPoints;
+	// Lose energy points, because of the new comer attack
+	if ((int)(this->_energyPoints - this->_challengeNewComerPoints) <= 0)
+		this->_energyPoints = 0;
 	else
-		this->_energyPoints += this->_challengeNewComerPoints;
+		this->_energyPoints -= this->_challengeNewComerPoints;
 
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
-    std::cout << " 💛 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "  - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
-void			ScavTrap::lazerAttack(std::string const &target)
+void			ScavTrap::lazerAttack(std::string const &attacker)
 {
     this->_challengeNewComerPoints = this->_lazerAttackDamagePoints;
-    std::cout << " ✨ - SC4V-TP " << this->_name << " receives " << target \
-              << "an attack with lazer, causing over " << this->_lazerAttackDamagePoints \
+    std::cout << " ✨ - SC4V-TP " << this->_name << " receives an attack with lazer from " \
+			  << attacker <<", causing " << this->_lazerAttackDamagePoints \
               << " of damage to him!" << std::endl;
     return ;
 }
 
-void			ScavTrap::seroAttack(std::string const &target)
+void			ScavTrap::seroAttack(std::string const &attacker)
 {
 	this->_challengeNewComerPoints = this->_seroAttackDamagePoints;
-    std::cout << " ➿ - SC4V-TP " << this->_name << " receives " << target \
-              << "an attack with a sero, causing " << this->_seroAttackDamagePoints \
+    std::cout << " ➿ - SC4V-TP " << this->_name << " receives an attack with a sero from " \
+			  << attacker <<", causing " << this->_seroAttackDamagePoints \
               << " of damage to him!" << std::endl;
     return ;
 }
 
-void			ScavTrap::zanbaktuAttack(std::string const &target)
+void			ScavTrap::zanbaktuAttack(std::string const &attacker)
 {
     this->_challengeNewComerPoints = this->_zanbaktuAttackDamagePoints;
-    std::cout << " 💀 - SC4V-TP " << this->_name << " receives " << target \
-              << "an attack with a zanbaktu, causing " << this->_zanbaktuAttackDamagePoints \
+    std::cout << " 💀 - SC4V-TP " << this->_name << " receives an attack with a zanbaktu from " \
+			  << attacker <<", causing " << this->_zanbaktuAttackDamagePoints \
               << " of damage to him!" << std::endl;
     return ;
 }
 
-void			ScavTrap::onePunchManAttack(std::string const &target)
+void			ScavTrap::onePunchManAttack(std::string const &attacker)
 {
     this->_challengeNewComerPoints = this->_onePunchManAttackDamagePoints;
-    std::cout << " 👨‍🦲🤜- SC4V-TP " << this->_name << " receives " << target \
-              << "an attack with one Punch of SuperMan, causing " << this->_onePunchManAttackDamagePoints \
+    std::cout << " 👨‍🦲🤜- SC4V-TP " << this->_name << " receives an attack with one Punch of SuperMan from " \
+			  << attacker <<", causing " << this->_onePunchManAttackDamagePoints \
               << " of damage to him!" << std::endl;
     return ;
 }
 
-void			ScavTrap::sniperRifleAttack(std::string const &target)
+void			ScavTrap::sniperRifleAttack(std::string const &attacker)
 {
     this->_challengeNewComerPoints = this->_sniperRifleAttackDamagePoints;
-    std::cout << " 🔦 - SC4V-TP " << this->_name << " receives " << target \
-              << "an attack with a sniper rifle, causing " << this->_sniperRifleAttackDamagePoints \
+    std::cout << " 🔦 - SC4V-TP " << this->_name << " receives an attack with a sniper rifle from " \
+			  << attacker <<", causing " << this->_sniperRifleAttackDamagePoints \
               << " of damage to him!" << std::endl;
     return ;
 }
 
-void			ScavTrap::rasinganAttack(std::string const &target)
+void			ScavTrap::rasinganAttack(std::string const &attacker)
 {
 	this->_challengeNewComerPoints = this->_rasinganAttackDamagePoints;
-    std::cout << " 🌀 - SC4V-TP " << this->_name << " receives " << target \
-              << "an attack with a rasingan, causing " << this->_rasinganAttackDamagePoints \
+    std::cout << " 🌀 - SC4V-TP " << this->_name << " receives an attack with a rasingan from " \
+			  << attacker <<", causing " << this->_rasinganAttackDamagePoints \
               << " of damage to him!" << std::endl;
     return ;
 }

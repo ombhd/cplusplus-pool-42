@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/08 12:59:11 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/08 15:30:19 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool			FragTrap::is_alive() const
 {
 	if (this->_hitPoints == 0)
 	{
-        // std::cout << this->_name << " 🦴 - Who Called Me to My Duty!!? I'M Already DEAD! X_X" << std::endl;
+        std::cout << this->_name << " 💀 - Who Called Me to My Duty!!? I'M Already DEAD! X_X" << std::endl;
 		return false;
 	}
 	return (true);
@@ -74,12 +74,12 @@ void			FragTrap::init(void)
 	_rangedAttackDamage = 20;
 	_armorDamageReduction = 5;
 	_vaulhunterDamagePoints = 0;
-	_onePunchManAttackDamagePoints = 100;
-	_sniperRifleAttackDamagePoints = 7;
-	_zanbaktuAttackDamagePoints = 20;
-	_seroAttackDamagePoints = 10;
-	_rocketAttackDamagePoints = 8;
-	_rasinganAttackDamagePoints = 25;
+	_onePunchManAttackDamagePoints = 200;
+	_sniperRifleAttackDamagePoints = 17;
+	_zanbaktuAttackDamagePoints = 50;
+	_seroAttackDamagePoints = 28;
+	_rocketAttackDamagePoints = 20;
+	_rasinganAttackDamagePoints = 60;
 }
 
 void			FragTrap::rangedAttack(std::string const & target)
@@ -98,7 +98,7 @@ void			FragTrap::rangedAttack(std::string const & target)
 	
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
-    std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -118,7 +118,7 @@ void			FragTrap::meleeAttack(std::string const & target)
 
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
-    std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -143,8 +143,9 @@ void			FragTrap::takeDamage(unsigned int amount)
     }
 	this->_hitPoints -= actualDamage;
 	std::cout << " 😈 " << this->_name << ": LOL! That's all the power you've got! I'm STILL alive, YEAH!" << std::endl;
-	std::cout << "  - Taken Damage: " << actualDamage << std::endl;
-	std::cout << "  - HP left: " << this->_hitPoints << "/"  << this->_maxHitPoints << std::endl;
+	std::cout << "    - Taken Damage: " << actualDamage << std::endl;
+	std::cout << "    - HP left: " << this->_hitPoints << "/"  << this->_maxHitPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -155,8 +156,8 @@ void			FragTrap::beRepaired(unsigned int amount)
 	if (this->_energyPoints < amount)
     {
         std::cout << "  😰 " << this->_name << " : I have NOT enough energy points.." << std::endl;
-   		std::cout << " 💛 - Energy points left: " << this->_energyPoints 
-		   		  << "/"  << this->_maxEnergyPoints << std::endl;
+   		std::cout << "    - Energy points left: " << this->_energyPoints 
+		   		  << "/"  << this->_maxEnergyPoints << "💛" << std::endl;
 		return ;
     }
 
@@ -171,7 +172,7 @@ void			FragTrap::beRepaired(unsigned int amount)
 
 	std::cout << " 💊 " << this->_name << ": Found Health over here!" << std::endl;
 	std::cout << "    - HP points: " << this->_hitPoints << std::endl;
-    std::cout << " 💛 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 
@@ -228,7 +229,7 @@ void			FragTrap::vaulthunter_dot_exe(std::string const & target)
 
 	// Display HP and Energy points
 	std::cout << "    - HP points: " << this->_hitPoints << "/" << this->_maxHitPoints << std::endl;
-    std::cout << " 💚 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
+    std::cout << "    - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << "💛" << std::endl;
     return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:04:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/07 10:16:53 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:28:58 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ private:
 	unsigned int	_lazerAttackDamagePoints;
 	unsigned int	_rasinganAttackDamagePoints;
 	void			init(void);
-// Super Attacks
+// Super Attacks for Challengers
 	void			zanbaktuAttack(std::string const &target);
 	void			lazerAttack(std::string const &target);
 	void			sniperRifleAttack(std::string const &target);
