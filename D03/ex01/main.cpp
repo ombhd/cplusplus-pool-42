@@ -42,12 +42,12 @@ int		main(void)
 	std::cout << "\nStart fighting .." << std::endl;
 	sep();
 	srand(time(NULL));
-	while (omar.is_alive())
+	while (omar.is_alive() && vilan.is_alive())
 	{
 		// ClapTrap
 		omar.meleeAttack(bob.getName());
 		sep();		
-		if (bob.is_alive())
+		if (!bob.is_alive())
 		{
 			omar.beRepaired(omar.getMeleeAttackDamage());
 			sep();
@@ -64,22 +64,22 @@ int		main(void)
 		sep();
 
 		// ScavTrap
-		vilan.meleeAttack(hacker.getName());
+		vilan.meleeAttack(mark.getName());
 		sep();
-		if (hacker.is_alive())
+		if (shrider.is_alive())
 		{
 			vilan.beRepaired(vilan.getMeleeAttackDamage());
 			sep();
 		}
-		hacker.takeDamage(vilan.getMeleeAttackDamage());
+		shrider.takeDamage(vilan.getMeleeAttackDamage());
 		sep();
 		shrider.challengeNewcomer(omar.getName());
-		sep();		
+		sep();
 		shrider.takeDamage(shrider.getChallengeNewComerPoints());
 		sep();
-		hacker.rangedAttack(omar.getName());
+		mark.rangedAttack(vilan.getName());
 		sep();
-		omar.takeDamage(hacker.getRangedAttackDamage());
+		vilan.takeDamage(mark.getRangedAttackDamage());
 		sep();
 	}
 	return 0;
