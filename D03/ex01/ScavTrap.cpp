@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/07 12:55:25 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/08 12:59:31 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void			ScavTrap::takeDamage(unsigned int amount)
 		return ;
 	if (amount == 0)
 	{
-		std::cout << this->_name << " 🦴 - What a weak child!" << std::endl;
+		std::cout << " 😹 " << this->_name << ": What a weak child!" << std::endl;
 		return ;
 	}
 	// We do this, because armor decreases the damage amount by _armorDamageReduction value
@@ -142,14 +142,16 @@ void			ScavTrap::takeDamage(unsigned int amount)
 		return ;
     }
 	this->_hitPoints -= actualDamage;
-	std::cout << " 😈 " << this->_name << " : LOL! That's all the power you've got! I'm STILL alive, YEAH!";
-	std::cout << " And I have " << this->_hitPoints << "/"  << this->_maxHitPoints << " HP left";
-	std::cout << " Despite of taking " << actualDamage << " Damage" << std::endl;
+	std::cout << " 😈 " << this->_name << ": LOL! That's all the power you've got! I'm STILL alive, YEAH!" << std::endl;
+	std::cout << "  - Taken Damage: " << actualDamage << std::endl;
+	std::cout << "  - HP left: " << this->_hitPoints << "/"  << this->_maxHitPoints << std::endl;
     return ;
 }
 
 void			ScavTrap::beRepaired(unsigned int amount)
 {
+	if (!this->is_alive())
+		return ;
 	if (this->_energyPoints < amount)
     {
         std::cout << "  😰 " << this->_name << " : I have NOT enough energy points.." << std::endl;
@@ -167,7 +169,7 @@ void			ScavTrap::beRepaired(unsigned int amount)
 	else
 		this->_hitPoints = this->_maxHitPoints;
 
-	std::cout << this->_name << " 💊 - Found Health over here!" << std::endl;
+	std::cout << " 💊 " << this->_name << ": Found Health over here!" << std::endl;
 	std::cout << "    - HP points: " << this->_hitPoints << std::endl;
     std::cout << " 💛 - Energy points left: " << this->_energyPoints << "/" << this->_maxEnergyPoints << std::endl;
     return ;
@@ -184,8 +186,8 @@ void			ScavTrap::challengeNewcomer(std::string const & target)
 		return ;
 	}
 	std::cout << "\n Challenge time! ..\n" << std::endl;
-	std::cout << "\n Let's see what challenge this new comer has for U ..\n" << std::endl;
-	std::cout << "\n Readyyyyyy!!! ..\n" << std::endl;
+	std::cout << " Let's see what challenge this new comer has for U ..\n" << std::endl;
+	std::cout << " Readyyyy!!! ..\n" << std::endl;
 	sleep(2);
 	this->setEnergyPoints(this->_energyPoints - 25);
 	int randomChallenge =  rand() % 6 + 1;
@@ -222,8 +224,7 @@ void			ScavTrap::challengeNewcomer(std::string const & target)
 		}
 	else
 	{
-		std::cout << "You are so lucky, this new comer has no challenge for you, and he is so weak!" << std::endl;
-		std::cout << "And of course, you can't get any points!" << std::endl;
+		std::cout << this->_name << ": I am lucky, this new comer has no challenge for me .." << std::endl;
 		_challengeNewComerPoints = 0;
 		return ;
 	}

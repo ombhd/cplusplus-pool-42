@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 12:51:19 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/07 10:17:10 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/08 12:59:45 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	sep(void)
 
 int		main(void) 
 {
+	bool ob = true;
+	bool ov = true;
 	// FragTrap
 	std::cout << "\nGame start ..\n" << std::endl;
 	sleep(1);
@@ -45,12 +47,14 @@ int		main(void)
 	while (omar.is_alive() && vilan.is_alive())
 	{
 		// ClapTrap
-		omar.meleeAttack(bob.getName());
+		if (bob.is_alive())
+			omar.meleeAttack(bob.getName());
 		sep();		
-		if (!bob.is_alive())
+		if (!bob.is_alive() && ob)
 		{
 			omar.beRepaired(omar.getMeleeAttackDamage());
 			sep();
+			ob = false;
 		}
 		bob.takeDamage(omar.getMeleeAttackDamage());
 		sep();
@@ -64,12 +68,13 @@ int		main(void)
 		sep();
 
 		// ScavTrap
-		vilan.meleeAttack(mark.getName());
+		vilan.meleeAttack(shrider.getName());
 		sep();
-		if (shrider.is_alive())
+		if (!shrider.is_alive() && ov)
 		{
 			vilan.beRepaired(vilan.getMeleeAttackDamage());
 			sep();
+			ov = false;
 		}
 		shrider.takeDamage(vilan.getMeleeAttackDamage());
 		sep();
