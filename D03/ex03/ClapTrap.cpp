@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/09 00:29:42 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:31:40 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(std::string name) : _name(name)
 {
 	init();
-	std::cout << " ⬇ ClapClap in" << std::endl;
+	std::cout << " ⬇ ClapClap in<" << _name << ">" << std::endl;
 	return ;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << " ⬆ ClapClap out" << std::endl << std::endl;
+	std::cout << " ⬆ ClapClap out<" << _name << ">" << std::endl << std::endl;
 	return ;
 }
 

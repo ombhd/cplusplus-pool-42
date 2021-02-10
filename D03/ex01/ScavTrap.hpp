@@ -6,13 +6,12 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:04:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/08 18:28:58 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:35:12 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_H
 #define SCAVTRAP_H
-
 
 #include <iostream>
 #include <unistd.h>

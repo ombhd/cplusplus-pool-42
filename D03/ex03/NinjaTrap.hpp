@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef NINJATRAP_H
+#define NINJATRAP_H
 
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"

@@ -6,11 +6,12 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:04:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/06 16:53:21 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:35:07 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_H
+#define FRAGTRAP_H
 
 #include <iostream>
 #include <unistd.h>
