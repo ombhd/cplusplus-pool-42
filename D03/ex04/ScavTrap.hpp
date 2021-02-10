@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:04:23 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/09 19:01:29 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/10 10:21:58 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public ClapTrap
 {
 public:
 	ScavTrap();

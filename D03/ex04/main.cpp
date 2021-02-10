@@ -6,13 +6,14 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 12:51:19 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/09 00:36:28 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:29:52 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "NinjaTrap.hpp"
+#include "SuperTrap.hpp"
 #include "ctime"
 
 void	sep(void)
@@ -43,15 +44,21 @@ int		main(void)
 	sep();
 	ScavTrap mark("mark");
 	sep();
+	
 	// NinjaTrap
 	NinjaTrap bigNinja("bigNinja");
 	sep();
 	NinjaTrap cyborg("cyborg");
 	sep();
+	
 	//ClapTrap
 	ClapTrap clappy("clappy");
-	std::cout << "\nStart fighting .." << std::endl;
 	sep();
+
+	//SuperTrap
+	SuperTrap ironMan("IRON-MAN");
+	sep();
+	std::cout << "\nStart fighting .." << std::endl;
 	srand(time(NULL));
 	while (bigFrag.is_alive() && bigScav.is_alive())
 	{
@@ -97,7 +104,7 @@ int		main(void)
 		bigScav.takeDamage(mark.getRangedAttackDamage());
 		sep();
 
-		//Ninja
+		//NinjaTrap
 		bigNinja.ninjaShoebox(clappy);
 		sep();
 		bigNinja.ninjaShoebox(hacker);
@@ -109,6 +116,17 @@ int		main(void)
 		cyborg.beRepaired(10);
 		sep();
 		
+		// SuperTrap
+		ironMan.rangedAttack(cyborg.getName());
+		sep();
+		cyborg.takeDamage(ironMan.getRangedAttackDamage());
+		sep();
+		ironMan.ninjaShoebox(hacker);
+		sep();
+		ironMan.vaulthunter_dot_exe(bigScav.getName());
+		sep();
+		bigScav.takeDamage(ironMan.getVaulhunterDamagePoints());
+		sep();
 	}
 	return 0;
 }
