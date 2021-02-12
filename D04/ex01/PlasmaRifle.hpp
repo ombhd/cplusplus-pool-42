@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.hpp                                        :+:      :+:    :+:   */
+/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:53:29 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/12 12:46:03 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/12 12:46:14 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_H
-#define AWEAPON_H
+#ifndef PLASMA_RIFLE_H
+#define PLASMA_RIFLE_H
 
-#include <iostream>
+#include "AWeapon.hpp"
 
-class AWeapon
+class PlasmaRifle : public AWeapon
 {
 	public:
-		AWeapon();
-		AWeapon(std::string const &name, int apcost, int damage);
-		AWeapon(const AWeapon &src);
-		virtual ~AWeapon();
-		AWeapon 		&operator=(const AWeapon &src);
+		PlasmaRifle();
+		PlasmaRifle(const PlasmaRifle &src);
+		virtual ~PlasmaRifle();
+		PlasmaRifle 		&operator=(const PlasmaRifle &src);
 		
-		std::string 	getName() const;
-		int				getAPCost() const;
-		int				getDamage() const;
-		
-		virtual void	attack() const = 0;
+		void	attack() const;
 
-	protected:
-		std::string	_name;
-		int			_APCost;
-		int			_damage;
+
 };
 
 
-#endif // !AWEAPON_H
+#endif // !PLASMA_RIFLE_H

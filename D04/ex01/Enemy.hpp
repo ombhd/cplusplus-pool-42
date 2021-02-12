@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.hpp                                        :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/12 11:53:29 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/12 12:46:03 by obouykou         ###   ########.fr       */
+/*   Created: 2021/02/12 12:49:33 by obouykou          #+#    #+#             */
+/*   Updated: 2021/02/12 12:56:48 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_H
-#define AWEAPON_H
+#ifndef ENEMY_H
+#define ENEMY_H
 
 #include <iostream>
 
-class AWeapon
+class Enemy
 {
 	public:
-		AWeapon();
-		AWeapon(std::string const &name, int apcost, int damage);
-		AWeapon(const AWeapon &src);
-		virtual ~AWeapon();
-		AWeapon 		&operator=(const AWeapon &src);
+		Enemy();
+		Enemy(int hp, std::string const & type);
+		Enemy(const Enemy &src);
+		virtual ~Enemy();
+		Enemy 			&operator=(const Enemy &src);
 		
-		std::string 	getName() const;
-		int				getAPCost() const;
-		int				getDamage() const;
+		std::string		getType() const;
+		int 			getHP() const;
 		
-		virtual void	attack() const = 0;
-
-	protected:
-		std::string	_name;
-		int			_APCost;
-		int			_damage;
+		virtual void takeDamage(int);
+	
+	private:
+		int			_hitPoints;
+		std::string	_type;
+		
 };
 
-
-#endif // !AWEAPON_H
+#endif // !ENEMY_H

@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 10:00:05 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/12 11:22:33 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/12 11:53:16 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,3 @@ int main()
 
 	return 0;
 }
-
-AWeapon.[hpp cpp]  PlasmaRifle.[hpp cpp]  PowerFist.[hpp cpp]  Enemy.[hpp cpp]  SuperMutant.[hpp cpp]  RadScorpion.[hpp cpp]  Character.[hpp cpp]  main.cpp

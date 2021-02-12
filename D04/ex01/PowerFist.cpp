@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.cpp                                        :+:      :+:    :+:   */
+/*   PowerFist.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/12 12:23:36 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/12 12:35:45 by obouykou         ###   ########.fr       */
+/*   Created: 2021/02/12 12:47:52 by obouykou          #+#    #+#             */
+/*   Updated: 2021/02/12 12:48:36 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AWeapon.hpp"
+#include "PowerFist.hpp"
 
-AWeapon::AWeapon()
+
+PowerFist::PowerFist(): AWeapon("Power Fist", 8, 50)
 {
 	return ;
 }
 
-AWeapon::AWeapon(std::string const & name, int apcost, int damage): 
-_name(name),
-_APCost(apcost),
-_damage(damage)
+PowerFist::~PowerFist()
 {
 	return ;
 }
 
-AWeapon::~AWeapon()
-{
-	return ;
-}
-
-AWeapon::AWeapon(const AWeapon &src)
+PowerFist::PowerFist(const PowerFist &src)
 {
 	*this = src;
 	return ;
 }
 
-AWeapon &AWeapon::operator=(const AWeapon &src)
+PowerFist &PowerFist::operator=(const PowerFist &src)
 {
 	if (this != &src)
 	{
@@ -47,17 +40,9 @@ AWeapon &AWeapon::operator=(const AWeapon &src)
 	return *this;
 }
 
-std::string AWeapon::getName() const
-{
-	return this->_name;
-}
 
-int AWeapon::getAPCost() const
+void	PowerFist::attack() const
 {
-	return this->_APCost;
-}
-
-int AWeapon::getDamage() const
-{
-	return this->_damage;
+	std::cout << "* pschhh... SBAM! *" << std::endl;
+	return ;
 }

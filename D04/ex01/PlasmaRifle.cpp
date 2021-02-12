@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.cpp                                        :+:      :+:    :+:   */
+/*   PlasmaRifle.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AWeapon.hpp"
+#include "PlasmaRifle.hpp"
 
-AWeapon::AWeapon()
+PlasmaRifle::PlasmaRifle(): AWeapon("Plasma Rifle", 5, 21)
 {
 	return ;
 }
 
-AWeapon::AWeapon(std::string const & name, int apcost, int damage): 
-_name(name),
-_APCost(apcost),
-_damage(damage)
+PlasmaRifle::~PlasmaRifle()
 {
 	return ;
 }
 
-AWeapon::~AWeapon()
-{
-	return ;
-}
-
-AWeapon::AWeapon(const AWeapon &src)
+PlasmaRifle::PlasmaRifle(const PlasmaRifle &src)
 {
 	*this = src;
 	return ;
 }
 
-AWeapon &AWeapon::operator=(const AWeapon &src)
+PlasmaRifle &PlasmaRifle::operator=(const PlasmaRifle &src)
 {
 	if (this != &src)
 	{
@@ -47,17 +39,9 @@ AWeapon &AWeapon::operator=(const AWeapon &src)
 	return *this;
 }
 
-std::string AWeapon::getName() const
-{
-	return this->_name;
-}
 
-int AWeapon::getAPCost() const
+void	PlasmaRifle::attack() const
 {
-	return this->_APCost;
-}
-
-int AWeapon::getDamage() const
-{
-	return this->_damage;
+	std::cout << "* piouuu piouuu piouuu *" << std::endl;
+	return ;
 }
