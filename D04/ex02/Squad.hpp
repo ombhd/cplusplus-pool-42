@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   Squad.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/12 12:49:33 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/17 15:34:04 by obouykou         ###   ########.fr       */
+/*   Created: 2021/02/17 19:17:20 by obouykou          #+#    #+#             */
+/*   Updated: 2021/02/17 19:22:59 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_H
-#define ENEMY_H
+#ifndef SQUAD_H
+#define SQUAD_H
 
 #include <iostream>
+#include "ISquad.hpp"
 
-class Enemy
+class Squad : public ISquad
 {
 	public:
-		Enemy();
-		Enemy(int hp, std::string const & type);
-		Enemy(const Enemy &src);
-		virtual ~Enemy();
-		Enemy 			&operator=(const Enemy &src);
-		
-		std::string		getType() const;
-		int 			getHP() const;
-		
-		virtual void takeDamage(int);
-
-	protected:
-		int			_hitPoints;
-		std::string	_type;
-		
+	virtual ~Squad() {}
+	virtual int getCount() const = 0;
+	virtual ISpaceMarine* getUnit(int) const = 0;
+	virtual int push(ISpaceMarine*) = 0;
 };
 
-#endif // !ENEMY_H
+
+#endif // !SQUAD_H

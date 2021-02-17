@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:53:49 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/12 12:59:53 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/17 15:32:39 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ int Enemy::getHP() const
 
 void Enemy::takeDamage(int damage)
 {
-	if (damage > this->_hitPoints)
+	if (damage <= 0)
+		return ;
+	if (damage >= this->_hitPoints)
 		this->_hitPoints = 0;
 	else
 		this->_hitPoints -= damage;
