@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 19:18:58 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/18 16:50:35 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/18 18:02:29 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,9 @@ int Squad::getCount() const
 
 ISpaceMarine* Squad::getUnit(int N) const
 {
-	int len;
 	spMarine *tmp;
 
-	len = this->getCount();
-	if (N < 0 || N >= len)
+	if (N < 0 || N >= this->getCount())
 		return NULL;
 	tmp = this->_spaceMarine;
 	while (tmp->next)
@@ -95,7 +93,7 @@ ISpaceMarine* Squad::getUnit(int N) const
 		if (N == 0)
 			break ;
 		tmp = tmp->next;
-		N--;
+		--N;
 	}
 	return tmp->marine;
 }

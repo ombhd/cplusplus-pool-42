@@ -19,15 +19,15 @@ AssaultTerminator::AssaultTerminator()
 	return ;
 }
 
-AssaultTerminator::AssaultTerminator(const AssaultTerminator &)
+AssaultTerminator::AssaultTerminator(const AssaultTerminator &src)
 {
+	*this = src;
 	return ;
 }
 
 AssaultTerminator &AssaultTerminator::operator=(const AssaultTerminator &tm)
 {
-	if (this != &tm)
-		*this = tm;
+	(void) tm;
 	return *this;
 }
 
