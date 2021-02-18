@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:28:39 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/18 16:38:51 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/18 17:38:08 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ TacticalMarine::TacticalMarine()
 	return ;
 }
 
-TacticalMarine::TacticalMarine(const TacticalMarine &)
+TacticalMarine::TacticalMarine(const TacticalMarine &src)
 {
+	*this = src;
 	return ;
 }
 
 TacticalMarine &TacticalMarine::operator=(const TacticalMarine &tm)
 {
-	if (this != &tm)
-		*this = tm;
+	(void) tm;
 	return *this;
 }
 
