@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,55 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
-AMateria::AMateria():
-_xp(0),
-_type("default")
+Cure::Cure(): AMateria("Cure")
 {
 	return ;
 }
 
-AMateria::AMateria(std::string const &type):
-_xp(0),
-_type(type)
-{
-	return ;
-}
-
-AMateria::AMateria(const AMateria &src)
+Cure::Cure(const Cure &src)
 {
 	*this = src;
 }
 
-AMateria &AMateria::operator=(const AMateria &src)
+Cure &Cure::operator=(const Cure &src)
 {
-	if (this != &src)
-	{
-		this->_type = src._type;
-		this->_xp = src._xp;
-	}
+	this->AMateria::operator=(src);
 	return *this;
 }
 
 
-AMateria::~AMateria()
+Cure::~Cure()
 {
 	return ;
 }
 
-std::string const & AMateria::getType() const
-{
-	return this->_type;
-}
 
-unsigned int AMateria::getXP() const
-{
-	return this->_xp;
-}
-
-void AMateria::use(ICharacter& target)
-{
-	(void)target;
-	this->_xp += 10;
-}
+// void Cure::use(ICharacter& target)
+// {
+// 	(void)target;
+// 	this->_xp += 10;
+// }

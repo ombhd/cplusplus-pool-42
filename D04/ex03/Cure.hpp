@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 18:11:43 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/18 18:25:38 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/18 18:56:02 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_H
-#define AMATERIA_H
+#ifndef CURE_H
+#define CURE_H
 
-#include <iostream>
+#include "AMateria.hpp"
 
-#include "ICharacter.hpp"
-
-class AMateria
+class Cure : public AMateria
 {
 	public:
-		AMateria();
-		AMateria(std::string const & type);
-		AMateria(const AMateria &);
-		AMateria &operator=(const AMateria &);
-		virtual ~AMateria();
-		std::string const & getType() const;
-		unsigned int getXP() const;
-		virtual AMateria* clone() const = 0;
+		Cure();
+		Cure(const Cure &);
+		Cure &operator=(const Cure &);
+		virtual ~Cure();
+		virtual Cure* clone() const = 0;
 		virtual void use(ICharacter& target);
 
-	private:
-		unsigned int	_xp;
-		std::string		_type;
 };
 
-#endif // !AMATERIA_H
+#endif // !CURE_H
