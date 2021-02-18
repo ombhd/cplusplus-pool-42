@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 19:17:20 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/17 19:22:59 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/18 10:20:39 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,25 @@
 #include <iostream>
 #include "ISquad.hpp"
 
-class Squad : public ISquad
+struct spMarine
 {
+	ISpaceMarine	*marine;
+	struct spMarine	*next;
+};
+
+class Squad : public ISquad
+{	
 	public:
-	virtual ~Squad() {}
-	virtual int getCount() const = 0;
-	virtual ISpaceMarine* getUnit(int) const = 0;
-	virtual int push(ISpaceMarine*) = 0;
+		Squad();
+		Squad(const Squad &);
+		virtual ~Squad() {}
+		Squad &operator=(const Squad &);
+		int getCount() const;
+		ISpaceMarine* getUnit(int) const;
+		int push(ISpaceMarine*);
+
+	private:
+		spMarine *_spaceMarine;
 };
 
 
