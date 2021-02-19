@@ -12,14 +12,14 @@
 
 #include "Cure.hpp"
 
-Cure::Cure(): AMateria("Cure")
+Cure::Cure(): AMateria("cure")
 {
 	return ;
 }
 
-Cure::Cure(const Cure &src)
+Cure::Cure(const Cure &src) : AMateria(src)
 {
-	*this = src;
+	return ;
 }
 
 Cure &Cure::operator=(const Cure &src)
@@ -28,15 +28,23 @@ Cure &Cure::operator=(const Cure &src)
 	return *this;
 }
 
-
 Cure::~Cure()
 {
 	return ;
 }
 
+AMateria *Cure::clone() const
+{
+	AMateria *tmp;
 
-// void Cure::use(ICharacter& target)
-// {
-// 	(void)target;
-// 	this->_xp += 10;
-// }
+	tmp = new Cure(*this);
+	if (!tmp)
+		std::cout << "Can't clone this Cure, memory allocation failed!" << std::endl;
+	return (tmp);
+}
+
+void Cure::use(ICharacter& target)
+{
+	AMateria::use(target);
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}

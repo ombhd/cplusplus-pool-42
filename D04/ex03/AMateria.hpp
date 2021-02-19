@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 18:11:43 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/18 18:53:06 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:31:40 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 
 #include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {

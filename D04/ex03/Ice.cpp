@@ -1,64 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 18:13:16 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/18 18:31:36 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:39:18 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
-AMateria::AMateria():
-_xp(0),
-_type("default")
+Ice::Ice(): AMateria("ice")
 {
 	return ;
 }
 
-AMateria::AMateria(std::string const &type):
-_xp(0),
-_type(type)
-{
-	return ;
-}
-
-AMateria::AMateria(const AMateria &src)
+Ice::Ice(const Ice &src)
 {
 	*this = src;
 }
 
-AMateria &AMateria::operator=(const AMateria &src)
+Ice &Ice::operator=(const Ice &src)
 {
-	if (this != &src)
-	{
-		this->_type = src._type;
-		this->_xp = src._xp;
-	}
+	this->AMateria::operator=(src);
 	return *this;
 }
 
 
-AMateria::~AMateria()
+Ice::~Ice()
 {
 	return ;
 }
 
-std::string const & AMateria::getType() const
+AMateria *Ice::clone() const
 {
-	return this->_type;
+	AMateria *tmp;
+
+	tmp = new Ice(*this);
+	if (!tmp)
+		std::cout << "Can't clone this Ice, memory allocation failed!" << std::endl;
+	return (tmp);
 }
 
-unsigned int AMateria::getXP() const
+void Ice::use(ICharacter& target)
 {
-	return this->_xp;
-}
-
-void AMateria::use(ICharacter& target)
-{
-	(void)target;
-	this->_xp += 10;
+	AMateria::use(target);
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

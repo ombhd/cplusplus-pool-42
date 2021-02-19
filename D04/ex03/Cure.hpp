@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 18:11:43 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/18 18:56:02 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:34:05 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Cure : public AMateria
 		Cure();
 		Cure(const Cure &);
 		Cure &operator=(const Cure &);
-		virtual ~Cure();
-		virtual Cure* clone() const = 0;
-		virtual void use(ICharacter& target);
+		~Cure();
+		AMateria *clone() const;
+		void use(ICharacter& target);
 
 };
 
