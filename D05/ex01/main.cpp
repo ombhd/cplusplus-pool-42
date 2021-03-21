@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 12:38:54 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/20 18:38:27 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/21 18:26:43 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@ int main()
 
 	std::cout << "First part" << std::endl;
 	try {
-		Bureaucrat max("Max", 120);
+		Bureaucrat max("Max", 60);
 		Bureaucrat henery("Henery", 1);
-		Form fr("law", 12, 10);
-		henery.signForm(fr);
-		max.signForm(fr);
-		max.decrementGrade(); 
-		std::cout << "After decremeting " << max.getName() << "'s grade" << std::endl;
+		Form state("state", 12, 10);
+		Form college("college", 70, 12);
+		henery.signForm(state);
+		max.signForm(state);
+		max.incrementGrade(); 
+		std::cout << "After incremeting " << max.getName() << "'s grade" << std::endl;
 		std::cout << max; 
-		henery.incrementGrade(); 
+		max.signForm(college);
+		henery.decrementGrade(); 
 		std::cout << henery;
 	} catch(std::exception &e) {
 		std::cout << e.what() << std::endl;
@@ -33,24 +35,10 @@ int main()
 	
 	std::cout << "\nSecond part" << std::endl;
 	try {
-		Bureaucrat max("Max", 150);
+		Bureaucrat max("Max", 100);
+		Form college("college", 70, 12);
 		std::cout << max;
-		max.decrementGrade(); 
-		std::cout << max; 
-	} catch(std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	
-	std::cout << "\nThird part" << std::endl;
-	try {
-		Bureaucrat max("Max", 151);
-	} catch(std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	
-	std::cout << "\nFourth part" << std::endl;
-	try {
-		Bureaucrat max("Max", -96);
+		college.beSigned(max);
 	} catch(std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
