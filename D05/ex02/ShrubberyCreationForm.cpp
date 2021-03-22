@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:38:29 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/21 19:35:43 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/22 17:33:39 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void	ShrubberyCreationForm::execute()
+void	ShrubberyCreationForm::action() const
 {
 	std::ofstream myfile((this->getTarget() + "_shrubbery"), std::ios::out);
 	if (!myfile.is_open())
@@ -39,17 +39,18 @@ void	ShrubberyCreationForm::execute()
 		std::cout << "Can't Create the target file" << std::endl;
 		return ;
 	}
-	myfile << "	             ,@@@@@@@,";
-	myfile << "      ,,,.   ,@@@@@@/@@,  .oo8888o.";
-	myfile << "   ,&%%&%&&%,@@@@@/@@@@@@,8888\88/8o";
-	myfile << "  ,%&\%&&%&&%,@@@\@@@/@@@88\88888/88'";
-	myfile << "  %&&%&%&/%&&%@@\@@/ /@@@88888\88888'";
-	myfile << "  %&&%/ %&%%&&@@\ V /@@' `88\8 `/88'";
-	myfile << "  `&%\ ` /%&'    |.|        \ '|8'";
-	myfile << "      |o|        | |         | |";
-	myfile << "      |.|        | |         | |";
-	myfile << "___ \\/ ._\//_/__/  ,\_//__\\/.  \_//__/_";
-	myfile << "";
-	myfile << "------------------------------------------------";
+	myfile << std::endl;
+	myfile << "              ,@@@@@@@," << std::endl;
+	myfile << "      ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl;
+	myfile << "   ,&\\%\\%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl;
+	myfile << "  ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'" << std::endl;
+	myfile << "  %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'" << std::endl;
+	myfile << "  %&&%/ %&\\%%&&@@\\ V /@@' `88\\8 `/88'" << std::endl;
+	myfile << "  `&%\\ ` /%&'    |.|        \\ '|8'" << std::endl;
+	myfile << "      |o|        | |         | |" << std::endl;
+	myfile << "      |.|        | |         | |" << std::endl;
+	myfile << "___ \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
+	myfile << "---   -------- --------  --------  -----" << std::endl;
+	myfile << "-  -----    ------ ----  ----- ------" << std::endl;
 	myfile.close();
 }

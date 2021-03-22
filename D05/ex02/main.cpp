@@ -5,43 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 12:38:54 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/21 18:26:43 by obouykou         ###   ########.fr       */
+/*   Created: 2021/03/22 17:08:28 by obouykou          #+#    #+#             */
+/*   Updated: 2021/03/22 17:25:51 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
+
+static void test(Bureaucrat & bur, Form & form)
+{
+    std::cout << std::endl << "Sign & Execute \033[33m" << form.getName() << "\033[0m : " << std::endl;
+    bur.signForm(form);
+    bur.executeForm(form);
+}
 
 int main()
 {
+    Bureaucrat max("Max", 50);
+    Bureaucrat henery("Henery", 1);
+    Bureaucrat bob("Bob", 120);
 
-	std::cout << "First part" << std::endl;
-	try {
-		Bureaucrat max("Max", 60);
-		Bureaucrat henery("Henery", 1);
-		Form state("state", 12, 10);
-		Form college("college", 70, 12);
-		henery.signForm(state);
-		max.signForm(state);
-		max.incrementGrade(); 
-		std::cout << "After incremeting " << max.getName() << "'s grade" << std::endl;
-		std::cout << max; 
-		max.signForm(college);
-		henery.decrementGrade(); 
-		std::cout << henery;
-	} catch(std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	
-	std::cout << "\nSecond part" << std::endl;
-	try {
-		Bureaucrat max("Max", 100);
-		Form college("college", 70, 12);
-		std::cout << max;
-		college.beSigned(max);
-	} catch(std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	
+    ShrubberyCreationForm shrub(max.getName());
+    PresidentialPardonForm pardon(henery.getName());
+    RobotomyRequestForm robot(bob.getName());
+
+    std::cout << "\033[31mNormal\033[0m tests : " << std::endl;
+
+    test(max, robot);
+    test(henery, shrub);
+    test(bob, pardon);
+
+    std::cout << std::endl << "\033[31mAlreadySigned & ToLow\033[0m tests : " << std::endl;
+
+    test(bob, pardon);
+
+    return (0);
 }
 

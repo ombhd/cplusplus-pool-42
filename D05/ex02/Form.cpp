@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:39:13 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/21 19:37:03 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/22 17:16:35 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 Form::Form() :
 _name("default"),
+_target("default target"),
 _signGrade(100),
 _execGrade(100),
-_target("default target"),
 _isSigned(false)
 {
 }
 
 Form::Form(const std::string name, int signG, int execG, std::string target):
 _name(name),
+_target(target),
 _signGrade(signG),
 _execGrade(execG),
-_target(target),
 _isSigned(false)
 {
 	if (_signGrade > 150)
@@ -40,9 +40,9 @@ _isSigned(false)
 
 Form::Form(const Form & fr):
 _name(fr._name),
+_target(fr._target),
 _signGrade(fr._signGrade),
 _execGrade(fr._execGrade),
-_target(fr._target),
 _isSigned(fr._isSigned)
 {
 	*this = fr;
@@ -90,6 +90,11 @@ const char* Form::GradeTooLowException::what() const throw()
 	return "Grade too low";
 }
 
+const char* Form::UnsignedFormException::what() const throw()
+{
+	return "Unsigned form";
+}
+
 bool			Form::_isFormSigned() const
 {
 	return _isSigned;
@@ -104,7 +109,18 @@ void			Form::beSigned(const Bureaucrat br)
 		throw GradeTooLowException();
 }
 
-void	Form::execute(){}
+void			Form::execute(Bureaucrat const & executor) const
+{
+	if (this->_isSigned == false)
+		throw UnsignedFormException();
+	else
+	{
+		if (executor.getGrade() <= this->_execGrade)
+			this->action();
+		else
+			throw GradeTooLowException();
+	}
+}
 
 std::ostream &operator<<(std::ostream &out, const Form &fr)
 {

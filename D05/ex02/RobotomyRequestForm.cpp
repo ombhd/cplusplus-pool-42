@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:38:29 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/21 19:35:35 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/22 17:03:39 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm & 
 	return *this;
 }
 
-void	RobotomyRequestForm::execute()
+void	RobotomyRequestForm::action() const 
 {
 	std::cout << "⛏⛏⛏✨⛏🔧⛏⛏✨⛏🔧⛏⛏⛏✨⛏🔧⛏⛏✨⛏⛏" << std::endl;
 	std::cout << "⛏🔧✨⛏🔧⛏⛏✨⛏🔧⛏⛏🔧✨⛏🔧⛏⛏✨⛏🔧⛏" << std::endl;

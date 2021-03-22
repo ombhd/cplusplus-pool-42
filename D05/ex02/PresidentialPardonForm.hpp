@@ -22,7 +22,7 @@ public:
 	PresidentialPardonForm(const PresidentialPardonForm &);
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &);
 	virtual ~PresidentialPardonForm();
-	void	pardon(const Bureaucrat br);
+	void	action() const;
 };
 
 #endif // PRESIDENTIAL_PARDON_FORM_H

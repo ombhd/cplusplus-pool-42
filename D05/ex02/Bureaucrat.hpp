@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:36:26 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/20 18:25:06 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/22 16:54:39 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ public:
 	void			incrementGrade();
 	void			decrementGrade();
 	void			signForm(Form &fr);
-
+	void			executeForm(Form const & form);
+	
 	class GradeTooHighException: public std::exception
 	{
 		public:

@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:39:13 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/21 18:25:23 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/22 17:23:37 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,19 @@ void			Bureaucrat::signForm(Form &fr)
 		std::cout << this->_name << " has signed " << fr.getName() << " form successfully" << std::endl;
 	} catch (std::exception &e)
 	{
-		std::cout << this->_name << " can NOT sign " << fr.getName() << " form because its " << e.what() << std::endl;
+		std::cout << this->_name << " can NOT sign " << fr.getName() << " form because: " << e.what() << std::endl;
+	}
+}
+
+void			Bureaucrat::executeForm(Form const & fr)
+{
+	try
+	{
+		fr.execute(*this);
+		std::cout << this->_name << " has executed " << fr.getName() << " form successfully." << std::endl;
+	} catch(const std::exception& e)
+	{
+		std::cerr << this->_name << " has failed to execute " << fr.getName() << " form, because: " << e.what() << std::endl;
 	}
 }
 
@@ -92,6 +104,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade too low";
 }
+
+
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &br)
 {

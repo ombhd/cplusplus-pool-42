@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/21 18:38:29 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/21 19:21:59 by obouykou         ###   ########.fr       */
+/*   Created: 2021/03/22 14:45:30 by obouykou          #+#    #+#             */
+/*   Updated: 2021/03/22 17:04:10 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return *this;
 }
 
-void	PresidentialPardonForm::pardon(const Bureaucrat br)
+void	PresidentialPardonForm::action() const 
 {
-	std::cout << br.getName() << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
