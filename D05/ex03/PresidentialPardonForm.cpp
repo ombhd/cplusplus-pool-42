@@ -6,13 +6,13 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:45:30 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/22 17:04:10 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/23 15:21:52 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Robotomy Request", 72, 45, target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Presidential Pardon", 25, 5, target)
 {
 }
 
