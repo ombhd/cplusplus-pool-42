@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:39:13 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/23 09:54:50 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/23 13:28:52 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ _signGrade(100),
 _execGrade(100),
 _isSigned(false)
 {
+}
+
+Droit(int x1, int y1, int x2, int y2): p1(x1, y1) 
+{
+	p2 = Point(x2, y2);
 }
 
 Form::Form(const std::string name, int signG, int execG, std::string target):
