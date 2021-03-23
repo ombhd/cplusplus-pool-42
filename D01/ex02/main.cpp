@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 18:36:10 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 19:31:33 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/23 10:22:56 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main()
 	zombie_ptr->announce();
 	std::cout << "\nCalling setZombieType()" << std::endl;
 	zombieEvent.randomChump();
+	delete zombie_ptr;
 	
 	return (0);
 }
