@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:08:28 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/23 11:06:22 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/23 11:54:16 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main()
     test(henery, shrub);
     test(bob, pardon);
 
-    std::cout << std::endl << "\033[34mAlreadySigned & ToLow\033[0m tests : " << std::endl;
+    std::cout << std::endl << "\033[34mOther\033[0m tests : " << std::endl;
 
     bob.decrementGrade();
     test(bob, robot);
