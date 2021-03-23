@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:08:28 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/23 10:19:41 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/23 11:06:22 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int main()
     Bureaucrat henery("Henery", 1);
     Bureaucrat bob("Bob", 45);
 
-    ShrubberyCreationForm shrub(max.getName());
-    PresidentialPardonForm pardon(henery.getName());
-    RobotomyRequestForm robot(bob.getName());
+    ShrubberyCreationForm shrub(henery.getName());
+    PresidentialPardonForm pardon(bob.getName());
+    RobotomyRequestForm robot(max.getName());
 
     std::cout << "\033[34mNormal\033[0m tests : " << std::endl;
 
