@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:38:29 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/22 17:33:39 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/23 09:55:53 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ void	ShrubberyCreationForm::action() const
 	std::ofstream myfile((this->getTarget() + "_shrubbery"), std::ios::out);
 	if (!myfile.is_open())
 	{
-		std::cout << "Can't Create the target file" << std::endl;
-		return ;
+		throw std::runtime_error("Could not create/open target file < " + this->getTarget() + "_shrubbery >");
 	}
 	myfile << std::endl;
 	myfile << "              ,@@@@@@@," << std::endl;

@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:39:13 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/22 17:23:37 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/23 10:16:40 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ void			Bureaucrat::signForm(Form &fr)
 {
 	try {
 		fr.beSigned(*this);
-		std::cout << this->_name << " has signed " << fr.getName() << " form successfully" << std::endl;
+		std::cout << std::endl << "✅ " << this->_name << " has signed " << fr.getName() << " form successfully.\n" << std::endl;
 	} catch (std::exception &e)
 	{
-		std::cout << this->_name << " can NOT sign " << fr.getName() << " form because: " << e.what() << std::endl;
+		std::cout << "❌ " << this->_name << " can NOT sign " << fr.getName() << " form reason: " << e.what() << std::endl << std::endl;
 	}
 }
 
@@ -88,10 +88,10 @@ void			Bureaucrat::executeForm(Form const & fr)
 	try
 	{
 		fr.execute(*this);
-		std::cout << this->_name << " has executed " << fr.getName() << " form successfully." << std::endl;
-	} catch(const std::exception& e)
+		std::cout << std::endl << "✅ " << this->_name << " has executed " << fr.getName() << " form successfully.\n" << std::endl;
+	} catch(std::exception &e)
 	{
-		std::cerr << this->_name << " has failed to execute " << fr.getName() << " form, because: " << e.what() << std::endl;
+		std::cout << "❌ " << this->_name << " has failed to execute " << fr.getName() << " form, reason: " << e.what() << std::endl << std::endl;
 	}
 }
 

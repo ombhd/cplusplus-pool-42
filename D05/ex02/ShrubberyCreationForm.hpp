@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:30:55 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/22 17:03:21 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/23 10:03:35 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &);
 	virtual ~ShrubberyCreationForm();
 	void	action() const;
+
 };
 
 #endif // SHRUBBERY_CREATION_FORM_H
