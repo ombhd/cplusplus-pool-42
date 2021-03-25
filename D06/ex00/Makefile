@@ -6,17 +6,17 @@
 #    By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/09 15:20:08 by obouykou          #+#    #+#              #
-#    Updated: 2021/01/30 18:23:32 by obouykou         ###   ########.fr        #
+#    Updated: 2021/03/25 17:00:20 by obouykou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = MyPhoneBook
+NAME = convert
 
-MAIN = my_phonebook.cpp
+MAIN = main.cpp
 
-FILES = sources/contact.class.cpp sources/phonebook.class.cpp
+FILES = sources/Conv.cpp 
 
-HEADERS = includes/contact.class.hpp includes/phonebook.class.hpp
+HEADERS = includes/Conv.hpp
 
 OBJECT = $(FILES:.cpp=.o)
 
@@ -26,7 +26,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECT) $(FILES) $(HEADERS) $(MAIN)
 	@clang++ $(FLAGS) $(MAIN) $(OBJECT) -o $(NAME)
-	@echo "\n\033[32m------- MyPhoneBook has been created successfully -------\033[0m\n"
+	@echo "\n\033[32m------- convert has been created successfully -------\033[0m\n"
 
 %.o:%.cpp					
 	@clang++ $(FLAGS) -c $< -o $@
