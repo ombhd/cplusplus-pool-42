@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:37:17 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/25 19:38:44 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/26 17:01:31 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Conv::Conv(const std::string data)
 	if (data.empty())
 		throw EmptyArgException();
 	_data = data;
-	if (!_isScientific())
+	if (!_isScientific()) // test nan inf +inf -inf
 	{
 		if (_data.length() > 1)
 		{
@@ -33,7 +33,8 @@ Conv::Conv(const std::string data)
 				_data = _data.substr(0, _data.length() - 1);
 			}
 			int pointCount = 0;
-			for (size_t i = 0; i < _data.length(); i++)
+			size_t i = (_data[0] == '+' || _data[0] == '-') ? 1 : 0;
+			for (; i < _data.length(); i++)
 			{
 				if (_data[i] == '.')
 					++pointCount;
@@ -45,7 +46,6 @@ Conv::Conv(const std::string data)
 		}
 		else if (_data.length() == 1 && isprint(_data[0]) && !isnumber(_data[0]))
 		{
-			
 			int n = static_cast<int>(_data[0]);
 			std::stringstream ss;
 			ss << n;
@@ -133,9 +133,7 @@ void	Conv::toFloat()
 	std::cout << "float: ";
 	if (isnan(_convDouble))
 		std::cout << "nanf";
-	else if (isinf(_convDouble) || 
-			 static_cast<double>(_convDouble) > std::numeric_limits<float>::max() || 
-			 static_cast<double>(_convDouble) < std::numeric_limits<float>::min())
+	else if (isinf(_convDouble))
 	{
 		(_convDouble < 0) ? std::cout << "-" : std::cout << "+";;
 		std::cout << "inff";
@@ -157,9 +155,7 @@ void	Conv::toDouble()
 	std::cout << "double: ";
 	if (isnan(_convDouble))
 		std::cout << "nan";
-	else if (isinf(_convDouble) || 
-			 _convDouble > std::numeric_limits<double>::max() || 
-			 _convDouble < std::numeric_limits<double>::min())
+	else if (isinf(_convDouble))
 	{
 		(_convDouble < 0) ? std::cout << "-" : std::cout << "+";;
 		std::cout << "inf";
@@ -191,8 +187,8 @@ int			Conv::_getPrecision()
 
 bool		Conv::_isScientific()
 {
-	std::string science[4] = {"nan", "inf", "+inf", "-inf"};
-	for (size_t i = 0; i < 4; i++)
+	std::string science[7] = {"nan", "inf", "inff", "+inf", "-inf", "+inff", "-inff"};
+	for (size_t i = 0; i < 7; i++)
 	{
 		if (_data == science[i])
 			return true;
@@ -202,7 +198,7 @@ bool		Conv::_isScientific()
 
 const char *Conv::InvalidArgException::what() const throw()
 {
-	return "Error: invalid argument.\nThe valid argument should contains only: \n    digits + one and only one point '.' + one and only one 'f' character at the end [to express float type]\n    Or one and only one displayable character";
+	return "Error: invalid argument.\n\nA valid argument should contains only: \n    ◊ digits + one and only one point '.' + one and only one 'f' character at the end [to express float type]\n  OR\n    ◊ one and only one displayable character";
 }
 
 const char *Conv::EmptyArgException::what() const throw()
