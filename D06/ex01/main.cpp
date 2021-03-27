@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:31:12 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/26 18:47:29 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 12:36:45 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 struct Data
 {
 	std::string	*strPtr0;
-	int			*intPtr;
+	int			i;
 	std::string	*strPtr1;
 };
 
@@ -24,7 +24,7 @@ struct Data
 std::string	genRandomString(const int len)
 {
     std::string randomString;
-    const char randomCharArr[] = "QWERTYUIOPASDFGHJKLZXCVBNMabcdefghijklmnopqrstuvwxyz123456789~!@#$%^&*()__+-=`}{:?><.,/';][";
+    const char randomCharArr[] = "QWERTYUIOPASDFGHJKLZXCVBNMabcdefghijklmnopqrstuvwxyz123456789";
     
     randomString.reserve(len);
     for (int i = 0; i < len; ++i)
@@ -34,27 +34,58 @@ std::string	genRandomString(const int len)
 	return randomString;
 }
 
-void * serialize(void)
+void	*serialize(void)
 {
-	Data;
-	std::string str0 = genRandomString(13);
-	std::string	*strPtr0 = &str0;
-	int			*i = new int(rand() % 13371337);
-	std::string str1 = genRandomString(37);
-	std::string	*strPtr1 = &str1;
+	std::cout << " \n\033[33mSerializing\033[0m ===========> ";
+	Data *data = new Data;
+	
+	data->strPtr0 = new std::string;
+	*(data->strPtr0) = genRandomString(13);
+	
+	data->i = rand() % 13371337;
+	
+	data->strPtr1 = new std::string;
+	*(data->strPtr1) = genRandomString(37);
+	
+	void *ret = static_cast<void *>(data);
+	std::cout << "Done" << std::endl << std::endl;
 
-	void *ret = strPtr0;
+	std::cout << "===== serialized data =====" << std::endl;
+	std::cout << "first string  : |" << *(data->strPtr0) << "|" << std::endl;
+	std::cout << "int           : |" << data->i << "|" << std::endl;
+	std::cout << "second string : |" << *(data->strPtr1) << "|" << std::endl;
+
 	return ret;
 }
 
-Data * deserialize(void *raw)
+Data	*deserialize(void *raw)
 {
-	
+	std::cout << " \n\033[33mDeserializing\033[0m =========> ";
+	Data *data = reinterpret_cast<Data *>(raw);
+	std::cout << "Done" << std::endl << std::endl;
+	std::cout << "===== Deserialized data =====" << std::endl;
+	std::cout << "first string  : |" << *(data->strPtr0) << "|" << std::endl;
+	std::cout << "int           : |" << data->i << "|" << std::endl;
+	std::cout << "second string : |" << *(data->strPtr1) << "|" << std::endl;
+	return data;
 }
 
-int main()
+
+
+int		main()
 {
-	Data data;
+	Data *data;
+	void *raw;
+
 	srand(time(NULL));
+	
+	raw = serialize();
+	data = deserialize(raw);
+
+	delete data->strPtr0;
+	delete data->strPtr1;
+	delete data;
+	// delete reinterpret_cast<Data*>(raw);
+	std::cout << std::endl;
 	return 0;
 }
