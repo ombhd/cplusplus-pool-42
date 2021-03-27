@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:31:12 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/27 15:48:50 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 17:15:59 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ Base	*generate(void)
 	return base;
 }
 
-void identify_from_reference(Base &p)
+void identify_from_pointer(Base *p)
 {
-	std::cout << "Identifiying class instance type: ";
+	std::cout << "Identifiying class instance type from pointer: ";
 	
-	Base *tester = &p;
+	Base *tester = p;
 	
 	A *a = dynamic_cast<A*>(tester);
 	B *b = dynamic_cast<B*>(tester);
@@ -68,10 +68,29 @@ void identify_from_reference(Base &p)
 		std::cout << "C" << std::endl;
 }
 
+void identify_from_reference(Base &p)
+{
+	std::cout << "Identifiying class instance type from reference: ";
+	
+	Base *tester = &p;
+	
+	A *a = dynamic_cast<A*>(tester);
+	B *b = dynamic_cast<B*>(tester);
+	C *c = dynamic_cast<C*>(tester);
+
+	if (a != NULL)
+		std::cout << "A" << std::endl;
+	else if (b != NULL)
+		std::cout << "B" << std::endl;
+	else if (c != NULL)
+		std::cout << "C" << std::endl;
+}
+
 int main(void)
 {
 	srand(time(NULL));
 	Base *base = generate();
+	identify_from_pointer(base);
 	identify_from_reference(*base);
 	delete base;
 	return 0;

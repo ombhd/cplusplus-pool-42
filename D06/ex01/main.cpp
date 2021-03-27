@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:31:12 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/27 14:22:05 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 17:20:20 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	*serialize(void)
 	data->strPtr1 = new std::string;
 	*data->strPtr1 = genRandomString(37);
 	
-	void *ret = static_cast<void *>(data);
+	void *ret = reinterpret_cast<void *>(data);
 	std::cout << "Done" << std::endl << std::endl;
 
 	std::cout << "=====  serialized data  =====" << std::endl;
