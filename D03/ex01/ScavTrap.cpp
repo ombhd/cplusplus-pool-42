@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/08 15:29:44 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 12:01:11 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void			ScavTrap::meleeAttack(std::string const & target)
 
 void			ScavTrap::takeDamage(unsigned int amount)
 {
-	unsigned int actualDamage;
+	long int actualDamage;
 
 	if (!this->is_alive())
 		return ;
@@ -134,7 +134,9 @@ void			ScavTrap::takeDamage(unsigned int amount)
 		return ;
 	}
 	// We do this, because armor decreases the damage amount by _armorDamageReduction value
-	actualDamage = amount - this->_armorDamageReduction;
+	actualDamage = static_cast<long int>(amount) - this->_armorDamageReduction;
+	if (actualDamage < 0)
+		actualDamage = 0;
     if (actualDamage >= this->_hitPoints)
     {
         this->_hitPoints = 0;

@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/10 11:31:22 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 12:02:34 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void			ClapTrap::meleeAttack(std::string const & target)
 
 void			ClapTrap::takeDamage(unsigned int amount)
 {
-	unsigned int actualDamage;
+	long int actualDamage;
 
 	if (!this->is_alive())
 		return ;
@@ -119,7 +119,9 @@ void			ClapTrap::takeDamage(unsigned int amount)
 		return ;
 	}
 	// We do this, because armor decreases the damage amount by _armorDamageReduction value
-	actualDamage = amount - this->_armorDamageReduction;
+	actualDamage = static_cast<long int>(amount) - this->_armorDamageReduction;
+	if (actualDamage < 0)
+		actualDamage = 0;
     if (actualDamage >= this->_hitPoints)
     {
         this->_hitPoints = 0;

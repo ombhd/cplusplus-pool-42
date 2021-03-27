@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/07 10:27:10 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 12:00:27 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void			FragTrap::init(void)
 	_energyPoints = 100;
 	_maxEnergyPoints = 100;
 	_level = 1;
-	_meleeAttackDamage = 30;
+	_meleeAttackDamage = 1;
 	_rangedAttackDamage = 20;
 	_armorDamageReduction = 5;
 	_vaulhunterDamagePoints = 0;
@@ -124,12 +124,14 @@ void			FragTrap::meleeAttack(std::string const & target)
 
 void			FragTrap::takeDamage(unsigned int amount)
 {
-	unsigned int actualDamage;
+	long int actualDamage;
 
 	if (!this->is_alive())
 		return ;
 	// We do this, because armor decreases the damage amount by _armorDamageReduction value
-	actualDamage = amount - this->_armorDamageReduction;
+	actualDamage = static_cast<long int>(amount) - this->_armorDamageReduction;
+	if (actualDamage < 0)
+		actualDamage = 0;
     if (actualDamage >= this->_hitPoints)
     {
         this->_hitPoints = 0;
