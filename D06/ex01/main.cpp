@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:31:12 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/27 12:36:45 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:22:05 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,39 +34,45 @@ std::string	genRandomString(const int len)
 	return randomString;
 }
 
+void	outputData(Data *data)
+{
+	std::cout << "first string  : |" << *data->strPtr0 << "|" << std::endl;
+	std::cout << "int           : |" << data->i << "|" << std::endl;
+	std::cout << "second string : |" << *data->strPtr1 << "|" << std::endl;
+}
+
 void	*serialize(void)
 {
 	std::cout << " \n\033[33mSerializing\033[0m ===========> ";
+	
 	Data *data = new Data;
 	
 	data->strPtr0 = new std::string;
-	*(data->strPtr0) = genRandomString(13);
+	*data->strPtr0 = genRandomString(13);
 	
 	data->i = rand() % 13371337;
 	
 	data->strPtr1 = new std::string;
-	*(data->strPtr1) = genRandomString(37);
+	*data->strPtr1 = genRandomString(37);
 	
 	void *ret = static_cast<void *>(data);
 	std::cout << "Done" << std::endl << std::endl;
 
-	std::cout << "===== serialized data =====" << std::endl;
-	std::cout << "first string  : |" << *(data->strPtr0) << "|" << std::endl;
-	std::cout << "int           : |" << data->i << "|" << std::endl;
-	std::cout << "second string : |" << *(data->strPtr1) << "|" << std::endl;
-
+	std::cout << "=====  serialized data  =====" << std::endl;
+	outputData(data);
+	
 	return ret;
 }
 
 Data	*deserialize(void *raw)
 {
 	std::cout << " \n\033[33mDeserializing\033[0m =========> ";
+	
 	Data *data = reinterpret_cast<Data *>(raw);
 	std::cout << "Done" << std::endl << std::endl;
+	
 	std::cout << "===== Deserialized data =====" << std::endl;
-	std::cout << "first string  : |" << *(data->strPtr0) << "|" << std::endl;
-	std::cout << "int           : |" << data->i << "|" << std::endl;
-	std::cout << "second string : |" << *(data->strPtr1) << "|" << std::endl;
+	outputData(data);
 	return data;
 }
 
