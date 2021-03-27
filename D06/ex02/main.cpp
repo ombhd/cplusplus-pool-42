@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:31:12 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/27 13:19:10 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:48:50 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ int main(void)
 	srand(time(NULL));
 	Base *base = generate();
 	identify_from_reference(*base);
+	delete base;
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:37:17 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/26 17:01:31 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:50:41 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,8 +187,8 @@ int			Conv::_getPrecision()
 
 bool		Conv::_isScientific()
 {
-	std::string science[7] = {"nan", "inf", "inff", "+inf", "-inf", "+inff", "-inff"};
-	for (size_t i = 0; i < 7; i++)
+	std::string science[8] = {"nan", "nanf", "inf", "inff", "+inf", "-inf", "+inff", "-inff"};
+	for (size_t i = 0; i < 8; i++)
 	{
 		if (_data == science[i])
 			return true;
