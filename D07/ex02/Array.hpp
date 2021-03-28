@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:24:02 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/28 11:19:40 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/28 11:36:48 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ class Array
 		}
 		
 		// destruct array
-		~Array<T>(){ delete [] this->_array; }
+		~Array<T>()
+		{
+			delete [] this->_array; 
+		}
 
 		// assignation operator
 		Array &operator=(Array<T> const &arr)
