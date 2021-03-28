@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:24:02 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/28 11:36:48 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/28 12:03:48 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ class Array
 		// destruct array
 		~Array<T>()
 		{
-			delete [] this->_array; 
+			delete [] this->_array;
+			std::cout << "Destruct array with size: " << _len << std::endl;
 		}
 
 		// assignation operator
@@ -52,8 +53,9 @@ class Array
 		{
 			if (this != &arr)
 			{
+				this->~Array();
 				this->_len = arr._len;
-				_array = new T[_len];
+				this->_array = new T[_len];
 				for (unsigned int i = 0; i < _len; i++)
 				{
 					this->_array[i] = arr._array[i];

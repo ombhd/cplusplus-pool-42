@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 16:52:31 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/28 11:33:17 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/28 11:50:17 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int main()
 	std::cout << std::endl << "After array1 = array2: " << std::endl;
 	std::cout << "\033[33marray1: size = " << array1.size() << "\033[0m" << std::endl;
 	for (size_t i = 0; i < array1.size(); i++)
+	{
+		std::cout << array1[i] << "\t";
+	}
+
+	array2 = array1;
+	std::cout << std::endl << "\nAfter array2 = array1: " << std::endl;
+	std::cout << "\033[33marray2: size = " << array2.size() << "\033[0m" << std::endl;
+	for (size_t i = 0; i < array2.size(); i++)
 	{
 		std::cout << array1[i] << "\t";
 	}

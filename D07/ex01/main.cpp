@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 18:52:38 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/28 11:29:14 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/28 12:03:24 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int main(void)
 	iter(arr, len, print);
 	
 	std::cout << std::endl;
+
+	delete [] arr;
 
 	return 0;
 }
