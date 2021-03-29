@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 12:44:47 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/29 14:41:25 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/29 15:07:59 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main(void)
 {
-	srand(time(NULL));
+	srand(clock());
 	int random;
 
 	// VECTOR
@@ -45,6 +45,13 @@ int main(void)
 	else
 		std::cout << random << ": Not Found" << std::endl;
 
+	// third test
+	random = rand() % 13;
+	if (easyfind(vec, random))
+		std::cout << random << ": Found" << std::endl;
+	else
+		std::cout << random << ": Not Found" << std::endl;
+
 	// LIST 
 	std::cout << "\n\n\033[33mLIST Tests\033[0m\n" << std::endl;
 
@@ -55,7 +62,6 @@ int main(void)
 		lst.push_back(random);
 		std::cout << random << "\t";
 	}
-	std::cout << std::endl;
 	
 	// first test
 	std::cout << "\n\n - searching in list: " << std::endl;
@@ -66,6 +72,13 @@ int main(void)
 		std::cout << random << ": Not Found" << std::endl;
 
 	// second test
+	random = rand() % 13;
+	if (easyfind(lst, random))
+		std::cout << random << ": Found" << std::endl;
+	else
+		std::cout << random << ": Not Found" << std::endl;
+
+	// third test
 	random = rand() % 13;
 	if (easyfind(lst, random))
 		std::cout << random << ": Found" << std::endl;
