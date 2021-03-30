@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 15:47:54 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/29 17:03:01 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/30 11:28:07 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 Span::Span():
 _N(0),
-_index(0),
-_isSorted(false),
-_array(new int[0])
+_isSorted(false)
 {
-
+	_array.reserve(0);
 }
 
 Span::Span(unsigned int n):
 _N(n),
-_index(0),
-_isSorted(false),
-_array(new int[_N])
+_isSorted(false)
 {
-	
+	_array.reserve(this->_N);
 }
 
 Span::Span(Span const & src)
@@ -37,7 +33,7 @@ Span::Span(Span const & src)
 
 Span::~Span()
 {
-	delete [] this->_array;
+	this->_array.clear();
 }
 
 Span &Span::operator=(Span const &span)
@@ -46,13 +42,8 @@ Span &Span::operator=(Span const &span)
 	{
 		this->~Span();
 		this->_N = span._N;
-		this->_index = span._index;
 		this->_isSorted = span._isSorted;
-		this->_array = new int[this->_N];
-		for (unsigned int i = 0; i < this->_N; i++)
-		{
-			this->_array[i] = span._array[i];
-		}
+		this->_array = span._array;
 	}
 	return *this;
 }
@@ -67,26 +58,26 @@ Span &Span::operator=(Span const &span)
 
 int	Span::shortestSpan()
 {
-	if (this->_index < 1)
+	if (this->_array.size() < 2)
 		throw NoSpanFound();
 	if (!this->_isSorted)
 	{
-		std::sort(this->_array, this->_array + this->_index);
+		std::sort(this->_array.begin(), this->_array.end());
 		this->_isSorted = true;
 	}
-	return (this->_array[1] - this->_array[0]);
+	return (this->_array.at(1) - this->_array.at(0));
 }
 
 int	Span::longestSpan()
 {
-	if (this->_index < 1)
+	if (this->_array.size() < 1)
 		throw NoSpanFound();
 	if (!this->_isSorted)
 	{
-		std::sort(this->_array, this->_array + this->_index);
+		std::sort(this->_array.begin(), this->_array.end());
 		this->_isSorted = true;
 	}
-	return (this->_array[this->_index - 1] - this->_array[0]);
+	return (*(this->_array.end()) - this->_array.at(0));
 }
 
 const char *Span::FullSpanException::what() const throw()

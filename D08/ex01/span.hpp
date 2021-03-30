@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 15:12:11 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/29 17:06:55 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/30 11:31:40 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 #include <exception>
 #include <algorithm>
+#include <vector>
 
 class Span
 {
 private:
 	unsigned int _N;
-	unsigned int _index;
 	bool _isSorted;
-	int *_array;
+	std::vector<int> _array;
 	
 public:
 	Span();
@@ -33,10 +33,11 @@ public:
 	int	shortestSpan();
 	int	longestSpan();
 
-	template<typename T>
+	template<template<typename, typename> class T>
 	void Span::addNumber(T & begin, T & end)
 	{
-		typename T::iterator it;	
+		typename T::iterator it;
+			
 	}
 	// {
 	// 	if (this->_index == this->_N)

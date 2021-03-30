@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 15:10:35 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/29 17:05:27 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/30 10:13:42 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main()
     
     try
     {
-        sp_full.addNumber(9);     
+        sp_full.addNumber(9);  
     }
     catch(const std::exception& e)
     {
