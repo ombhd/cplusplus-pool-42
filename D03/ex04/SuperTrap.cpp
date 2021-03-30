@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:09:18 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/10 11:26:08 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/30 13:34:34 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name), FragTrap(name), NinjaTr
 	return ;
 }
 
+SuperTrap::SuperTrap(const SuperTrap &src)
+{
+	*this = src;
+}
+
 SuperTrap::~SuperTrap()
 {
 	std::cout << _name << " : SuperCyborg is dead!" << std::endl;
@@ -34,9 +39,8 @@ SuperTrap::~SuperTrap()
 
 SuperTrap &SuperTrap::operator=(const SuperTrap &src)
 {
-	if (this == &src)
-		return (*this);
-	ClapTrap::operator=(src);
+	if (this != &src)
+		ClapTrap::operator=(src);
 	return *this;
 }
 
