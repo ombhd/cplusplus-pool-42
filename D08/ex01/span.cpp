@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 15:47:54 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/30 11:28:07 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/30 17:49:26 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Span::Span(Span const & src)
 Span::~Span()
 {
 	this->_array.clear();
+	std::vector<int>().swap(this->_array);
 }
 
 Span &Span::operator=(Span const &span)
@@ -48,36 +49,45 @@ Span &Span::operator=(Span const &span)
 	return *this;
 }
 
-// void Span::addNumber(int number)
-// {
-// 	if (this->_index == this->_N)
-// 		throw FullSpanException();
-// 	this->_array[this->_index++] = number;
-// 	this->_isSorted = false;
-// }
+void Span::addNumber(int num)
+{
+	if (this->_array.size() == this->_N)
+		throw FullSpanException();
+	this->_array.push_back(num);
+	this->_isSorted = false;
+}
 
-int	Span::shortestSpan()
+long	Span::shortestSpan()
 {
 	if (this->_array.size() < 2)
 		throw NoSpanFound();
 	if (!this->_isSorted)
 	{
+		std::cout << " SP::Sorting.. ";
 		std::sort(this->_array.begin(), this->_array.end());
 		this->_isSorted = true;
 	}
-	return (this->_array.at(1) - this->_array.at(0));
+	long int sp = static_cast<long int>(this->_array.at(1)) - static_cast<long int>(this->_array.at(0));
+	for (size_t i = 1; i < this->_array.size() - 1; i++)
+	{
+		if (this->_array.at(i + 1) - this->_array.at(i) < sp)
+			sp = this->_array.at(i + 1) - this->_array.at(i);
+	}
+	return sp;
 }
 
-int	Span::longestSpan()
+long	Span::longestSpan()
 {
 	if (this->_array.size() < 1)
 		throw NoSpanFound();
 	if (!this->_isSorted)
 	{
+		std::cout << " LP::Sorting.. ";
 		std::sort(this->_array.begin(), this->_array.end());
 		this->_isSorted = true;
 	}
-	return (*(this->_array.end()) - this->_array.at(0));
+	long int lp = static_cast<long int>(*(this->_array.end() - 1)) - static_cast<long int>(this->_array.at(0));
+	return (lp);
 }
 
 const char *Span::FullSpanException::what() const throw()
@@ -87,5 +97,5 @@ const char *Span::FullSpanException::what() const throw()
 
 const char *Span::NoSpanFound::what() const throw()
 {
-	return "No Span Found";
+	return "No enough numbers to make span with";
 }
