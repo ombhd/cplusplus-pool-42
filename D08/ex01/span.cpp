@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 15:47:54 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/30 17:49:26 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/30 18:50:31 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ long	Span::shortestSpan()
 		throw NoSpanFound();
 	if (!this->_isSorted)
 	{
-		std::cout << " SP::Sorting.. ";
 		std::sort(this->_array.begin(), this->_array.end());
 		this->_isSorted = true;
 	}
@@ -78,11 +77,10 @@ long	Span::shortestSpan()
 
 long	Span::longestSpan()
 {
-	if (this->_array.size() < 1)
+	if (this->_array.size() < 2)
 		throw NoSpanFound();
 	if (!this->_isSorted)
 	{
-		std::cout << " LP::Sorting.. ";
 		std::sort(this->_array.begin(), this->_array.end());
 		this->_isSorted = true;
 	}
@@ -92,7 +90,7 @@ long	Span::longestSpan()
 
 const char *Span::FullSpanException::what() const throw()
 {
-	return "Full Span";
+	return "Full Span [ No more space for new numbers ]";
 }
 
 const char *Span::NoSpanFound::what() const throw()

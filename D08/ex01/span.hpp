@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 15:12:11 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/30 17:40:18 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/30 18:50:46 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Span
 {
 private:
 	unsigned int _N;
+	std::vector<int> _array;
 	bool _isSorted;
 	
 public:
-	std::vector<int> _array;
 	Span();
 	Span(unsigned int);
 	Span(Span const &);
