@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 15:10:35 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/30 18:55:53 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/30 19:01:14 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int main()
         printSpans(sp);
     }
 
-    // 
+    // 2 values span
     {
         std::cout << "\n\033[33mTEST LONGEST/SHORTEST SPAN WITH 2 VALUES SPAN\033[0m" << std::endl;
  
