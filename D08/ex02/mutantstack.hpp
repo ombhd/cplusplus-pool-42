@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 19:03:05 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/31 13:47:19 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/31 14:11:46 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class MutantStack : public std::stack<T>
 		MutantStack<T>(MutantStack const &src) : std::stack<T>(src){}
 		virtual ~MutantStack<T>(){}
 	
-    typedef typename std::stack<T>::container_type::iterator					iterator;
+    typedef typename std::stack<T>::container_type::iterator				iterator;
     typedef typename std::stack<T>::container_type::const_iterator			const_iterator;
-    typedef typename std::stack<T>::container_type::reverse_iterator			reverse_iterator;
+    typedef typename std::stack<T>::container_type::reverse_iterator		reverse_iterator;
     typedef typename std::stack<T>::container_type::const_reverse_iterator	const_reverse_iterator;
 	
 	iterator	begin()			{ return std::stack<T>::c.begin(); }
