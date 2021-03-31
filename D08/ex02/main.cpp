@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 19:02:38 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/31 14:10:22 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:48:35 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int main()
 		
 		std::cout << "Top  ==> " << mstack.top() << std::endl;
 		std::cout << "Size ==> "  << mstack.size() << std::endl;
+
 		
 		MutantStack<int>::iterator it = mstack.begin();
 		MutantStack<int>::iterator ite = mstack.end();
