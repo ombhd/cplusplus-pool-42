@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:48:42 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/29 11:09:50 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/03/31 19:16:32 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class Contact
 {
+private:
 	std::string firstName;
 	std::string lastName;
 	std::string nickname;
