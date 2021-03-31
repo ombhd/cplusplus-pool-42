@@ -18,7 +18,7 @@
  - [Day08: Templated containers, iterators, algorithms](https://github.com/su-omb/cplusplus-pool-42/blob/main/D08/en.subject.pdf)
 
 
-## Sources
+## Some Useful Sources
  - [Cplusplus.com](http://www.cplusplus.com/)
  - [Converting floating point to Fixed point numbers](https://stackoverflow.com/questions/187713/converting-floating-point-to-fixed-point)
  - [What is the Difference Between a Pointer and a Reference C++](https://youtu.be/sxHng1iufQE)
