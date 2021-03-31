@@ -7,10 +7,18 @@
  - C++ gives programmers a high level of control over system resources and memory. 
 
 ## Subjects
- - [Day00]()
+ - [Day00: Namespace, class, member functions, stdio stream,initialization lists, static, const, and lots of basic stuff](https://github.com/su-omb/cplusplus-pool-42/blob/main/D00/en.subject.pdf)
+ - [Day01: Memory allocation, References, Pointers to members,File streams](https://github.com/su-omb/cplusplus-pool-42/blob/main/D01/en.subject.pdf)
+ - [Day02: Ad-hoc polymorphism, operators overload andcanonical classes](https://github.com/su-omb/cplusplus-pool-42/blob/main/D02/en.subject.pdf)
+ - [Day03: Inheritance](https://github.com/su-omb/cplusplus-pool-42/blob/main/D03/en.subject.pdf)
+ - [Day04: Subtype polymorphism, abstract classes, interfaces](https://github.com/su-omb/cplusplus-pool-42/blob/main/D04/en.subject.pdf)
+ - [Day05: Repetition and Exceptions](https://github.com/su-omb/cplusplus-pool-42/blob/main/D05/en.subject.pdf)
+ - [Day06: C++ Casts](https://github.com/su-omb/cplusplus-pool-42/blob/main/D06/en.subject.pdf)
+ - [Day07: C++ Templates](https://github.com/su-omb/cplusplus-pool-42/blob/main/D07/en.subject.pdf)
+ - [Day08: Templated containers, iterators, algorithms](https://github.com/su-omb/cplusplus-pool-42/blob/main/D08/en.subject.pdf)
 
 
-## Sources
+## Some Useful Sources
  - [Cplusplus.com](http://www.cplusplus.com/)
  - [Converting floating point to Fixed point numbers](https://stackoverflow.com/questions/187713/converting-floating-point-to-fixed-point)
  - [What is the Difference Between a Pointer and a Reference C++](https://youtu.be/sxHng1iufQE)
