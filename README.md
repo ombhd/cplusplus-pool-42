@@ -7,7 +7,15 @@
  - C++ gives programmers a high level of control over system resources and memory. 
 
 ## Subjects
- - [Day00]()
+ - [Day00](https://github.com/su-omb/cplusplus-pool-42/blob/main/D00/en.subject.pdf)
+ - [Day01](https://github.com/su-omb/cplusplus-pool-42/blob/main/D01/en.subject.pdf)
+ - [Day02](https://github.com/su-omb/cplusplus-pool-42/blob/main/D02/en.subject.pdf)
+ - [Day03](https://github.com/su-omb/cplusplus-pool-42/blob/main/D03/en.subject.pdf)
+ - [Day04](https://github.com/su-omb/cplusplus-pool-42/blob/main/D04/en.subject.pdf)
+ - [Day05](https://github.com/su-omb/cplusplus-pool-42/blob/main/D05/en.subject.pdf)
+ - [Day06](https://github.com/su-omb/cplusplus-pool-42/blob/main/D06/en.subject.pdf)
+ - [Day07](https://github.com/su-omb/cplusplus-pool-42/blob/main/D07/en.subject.pdf)
+ - [Day08](https://github.com/su-omb/cplusplus-pool-42/blob/main/D08/en.subject.pdf)
 
 
 ## Sources
