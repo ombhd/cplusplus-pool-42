@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 18:36:10 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/23 10:22:56 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/06/22 19:10:34 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 	zombie_ptr = zombieEvent.newZombie("Eren");
 	std::cout << "\nAfter calling newZombie()" << std::endl;
 	zombie_ptr->announce();
-	zombieEvent.setZombieType(*zombie_ptr, "bones destroyer");
+	zombieEvent.setZombieType("bones destroyer");
 	std::cout << "\nAfter calling setZombieType()" << std::endl;
 	zombie_ptr->announce();
 	std::cout << "\nCalling setZombieType()" << std::endl;

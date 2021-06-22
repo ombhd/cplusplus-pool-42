@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 16:35:30 by obouykou          #+#    #+#             */
-/*   Updated: 2021/02/01 09:59:50 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/06/22 18:58:18 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ Zombie		*ZombieEvent::newZombie(std::string name)
 {
 	Zombie *zombie = new Zombie();
 	zombie->setName(name);
+	zombie->setType(_type);
 	return (zombie);
 }
 
-void		ZombieEvent::setZombieType(Zombie &zombie, std::string type)
+void		ZombieEvent::setZombieType(std::string const & type)
 {
-	zombie.setType(type);
+	_type = type;
 }
 
 std::string	ZombieEvent::genRandomString(const int len) 
@@ -51,6 +52,6 @@ void		ZombieEvent::randomChump()
 	
     srand((unsigned int)time(NULL));
 	zombie.setName(genRandomString(7));
-	zombie.setType(genRandomString(5));
+	zombie.setType(_type);
 	zombie.announce();
 }

@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 16:31:22 by obouykou          #+#    #+#             */
-/*   Updated: 2021/01/31 19:35:33 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/06/22 18:57:33 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ class ZombieEvent
 {
 private:
 	std::string genRandomString(int len);
+	std::string _type;
 
 public:
 	ZombieEvent();
 	~ZombieEvent();
-	void		setZombieType(Zombie &zombie, std::string type);
+	void		setZombieType(std::string const & type);
 	Zombie  	*newZombie(std::string name);
 	void		randomChump();
 };
