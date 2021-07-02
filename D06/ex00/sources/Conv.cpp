@@ -6,7 +6,7 @@
 /*   By: obouykou <obouykou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:37:17 by obouykou          #+#    #+#             */
-/*   Updated: 2021/03/27 15:50:41 by obouykou         ###   ########.fr       */
+/*   Updated: 2021/07/02 15:06:55 by obouykou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ Conv::Conv(const std::string data)
 			}
 			int pointCount = 0;
 			size_t i = (_data[0] == '+' || _data[0] == '-') ? 1 : 0;
+			if (_data[i] == '.')
+					throw InvalidArgException();
 			for (; i < _data.length(); i++)
 			{
 				if (_data[i] == '.')
@@ -54,6 +56,7 @@ Conv::Conv(const std::string data)
 	}
 	_convDouble = atof(_data.c_str());
 }
+
 
 Conv::Conv(const Conv &src)
 {
